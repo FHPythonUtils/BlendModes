@@ -39,6 +39,9 @@ class BlendType(Enum):
 	SATURATION = auto()
 	COLOUR = auto()
 	LUMINOSITY = auto()
+	PINLIGHT = auto()
+	VIVIDLIGHT = auto()
+	EXCLUSION = auto()
 
 def normal(_background, foreground):
 	""" BlendType.NORMAL """
@@ -87,7 +90,7 @@ def difference(background, foreground):
 
 def negation(background, foreground):
 	""" BlendType.NEGATION """
-	return 1.0 - np.abs(1.0 - background - foreground)
+	return np.maximum(background - foreground, 0.0)
 
 def lighten(background, foreground):
 	""" BlendType.LIGHTEN """
@@ -106,8 +109,8 @@ def xor(background, foreground):
 	# XOR requires int values so convert to uint8
 	with warnings.catch_warnings():
 		warnings.simplefilter('ignore')
-		return skimage.img_as_float(skimage.img_as_ubyte(background) ^
-		skimage.img_as_ubyte(foreground))
+		return skimage.img_as_float(skimage.img_as_uint(background) ^
+		skimage.img_as_uint(foreground))
 
 def softlight(background, foreground):
 	""" BlendType.SOFTLIGHT """
@@ -116,7 +119,7 @@ def softlight(background, foreground):
 
 def hardlight(background, foreground):
 	""" BlendType.HARDLIGHT """
-	return np.where(foreground > 0.5, np.minimum(background * 2 * foreground, 1.0),
+	return np.where(foreground < 0.5, np.minimum(background * 2 * foreground, 1.0),
 		np.minimum(1.0 - ((1.0 - background) * (1.0 - (foreground - 0.5) * 2.0)),
 		1.0))
 
@@ -132,6 +135,19 @@ def divide(background, foreground):
 	""" BlendType.DIVIDE """
 	return np.minimum((256.0 / 255.0 * background) / (1.0 / 255.0 + foreground), 1.0)
 
+def pinlight(background, foreground):
+	""" BlendType.PINLIGHT """
+	return np.minimum(background, 2 * foreground) * (foreground < 0.5) + np.maximum(
+		background,	2 * (foreground - 0.5)) * (foreground >= 0.5)
+
+def vividlight(background, foreground):
+	""" BlendType.VIVIDLIGHT """
+	return colourburn(background, foreground * 2) * (foreground < 0.5) + colourdodge(
+		background, 2 * (foreground - 0.5)) * (foreground >= 0.5)
+
+def exclusion(background, foreground):
+	""" BlendType.EXCLUSION """
+	return background + foreground - ((2.0 * background * foreground))
 
 def _lum(colours):
 	"""
@@ -264,7 +280,9 @@ def blend(background, foreground, blendType):
 	BlendType.GRAINEXTRACT: grainextract, BlendType.GRAINMERGE: grainmerge,
 	BlendType.DIVIDE: divide, BlendType.HUE: hue, BlendType.SATURATION: saturation,
 	BlendType.COLOUR: colour, BlendType.LUMINOSITY: luminosity,
-	BlendType.XOR: xor, BlendType.NEGATION: negation}
+	BlendType.XOR: xor, BlendType.NEGATION: negation,
+	BlendType.PINLIGHT: pinlight, BlendType.VIVIDLIGHT: vividlight,
+	BlendType.EXCLUSION: exclusion}
 
 	if blendType not in blendLookup:
 		return normal(background, foreground)

@@ -195,6 +195,33 @@ divide(background, foreground)
 
 BlendType.DIVIDE
 
+<a name=".blendmodes.blend.pinlight"></a>
+#### pinlight
+
+```python
+pinlight(background, foreground)
+```
+
+BlendType.PINLIGHT
+
+<a name=".blendmodes.blend.vividlight"></a>
+#### vividlight
+
+```python
+vividlight(background, foreground)
+```
+
+BlendType.VIVIDLIGHT
+
+<a name=".blendmodes.blend.exclusion"></a>
+#### exclusion
+
+```python
+exclusion(background, foreground)
+```
+
+BlendType.EXCLUSION
+
 <a name=".blendmodes.blend.hue"></a>
 #### hue
 

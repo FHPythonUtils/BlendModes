@@ -41,6 +41,9 @@ foreground image
 	- [Saturation](#saturation)
 	- [Colour](#colour)
 	- [Luminosity](#luminosity)
+	- [PinLight](#pinlight)
+	- [VividLight](#vividlight)
+	- [Exclusion](#exclusion)
 - [Install With PIP](#install-with-pip)
 - [Language information](#language-information)
 	- [Built for](#built-for)
@@ -245,6 +248,27 @@ blendLayers(background, foreground, BlendType.COLOUR)
 blendLayers(background, foreground, BlendType.LUMINOSITY)
 ```
 ![Luminosity](test/luminosity_expected.png)
+
+### PinLight
+
+```python
+blendLayers(background, foreground, BlendType.PINLIGHT)
+```
+![PinLight](test/pinlight_expected.png)
+
+### VividLight
+
+```python
+blendLayers(background, foreground, BlendType.VIVIDLIGHT)
+```
+![VividLight](test/vividlight_expected.png)
+
+### Exclusion
+
+```python
+blendLayers(background, foreground, BlendType.EXCLUSION)
+```
+![Exclusion](test/exclusion_expected.png)
 
 ## Install With PIP
 

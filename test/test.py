@@ -170,6 +170,26 @@ def test_luminosity():
 	assert(imgcompare.is_equal(blendLayers(background, foreground, BlendType.LUMINOSITY),
 	THISDIR + "/luminosity_expected.png", tolerance=1))
 
+def test_pinlight():
+	""" test pinlight """
+	background = Image.open(THISDIR + "/background.png")
+	foreground = Image.open(THISDIR + "/foreground.png")
+	assert(imgcompare.is_equal(blendLayers(background, foreground, BlendType.PINLIGHT),
+	THISDIR + "/pinlight_expected.png", tolerance=1))
+
+def test_vividlight():
+	""" test vividlight """
+	background = Image.open(THISDIR + "/background.png")
+	foreground = Image.open(THISDIR + "/foreground.png")
+	assert(imgcompare.is_equal(blendLayers(background, foreground, BlendType.VIVIDLIGHT),
+	THISDIR + "/vividlight_expected.png", tolerance=1))
+
+def test_exclusion():
+	""" test exclusion """
+	background = Image.open(THISDIR + "/background.png")
+	foreground = Image.open(THISDIR + "/foreground.png")
+	assert(imgcompare.is_equal(blendLayers(background, foreground, BlendType.EXCLUSION),
+	THISDIR + "/exclusion_expected.png", tolerance=1))
 
 test_normal()
 test_multiply()
@@ -194,3 +214,6 @@ test_hue()
 test_saturation()
 test_colour()
 test_luminosity()
+test_pinlight()
+test_vividlight()
+test_exclusion()
