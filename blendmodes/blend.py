@@ -272,9 +272,9 @@ def blend(background, foreground, blendType):
 	[0. 0. 0.]]]
 	"""
 	blendLookup = {BlendType.NORMAL: normal, BlendType.MULTIPLY: multiply,
-	BlendType.COLOURBURN: colourburn,	BlendType.COLOURDODGE: colourdodge,
-	BlendType.REFLECT: reflect,	BlendType.OVERLAY: overlay,
-	BlendType.DIFFERENCE: difference,	BlendType.LIGHTEN: lighten,
+	BlendType.COLOURBURN: colourburn, BlendType.COLOURDODGE: colourdodge,
+	BlendType.REFLECT: reflect, BlendType.OVERLAY: overlay,
+	BlendType.DIFFERENCE: difference, BlendType.LIGHTEN: lighten,
 	BlendType.DARKEN: darken, BlendType.SCREEN: screen,
 	BlendType.SOFTLIGHT: softlight, BlendType.HARDLIGHT: hardlight,
 	BlendType.GRAINEXTRACT: grainextract, BlendType.GRAINMERGE: grainmerge,
