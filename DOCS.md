@@ -12,8 +12,18 @@ Provide blending functions and types
 Adapted from https://github.com/addisonElliott/pypdn/blob/master/pypdn/reader.py
 and https://gitlab.com/inklabapp/pyora/-/blob/master/pyora/BlendNonSep.py
 MIT License Copyright (c) 2020 FredHappyface
-MIT License Copyright (c) 2018 Addison Elliott
+
+Credits to:
+
 MIT License Copyright (c) 2019 Paul Jewell
+For implementing blending from the Open Raster Image Spec
+
+MIT License Copyright (c) 2018 Addison Elliott
+For implementing blending from Paint.NET
+
+MIT License Copyright (c) 2017 pashango
+For implementing a number of blending functions used by other popular image
+editors
 
 <a name=".blendmodes.blend.BlendType"></a>
 ### BlendType
@@ -257,6 +267,91 @@ luminosity(background, foreground)
 ```
 
 BlendType.LUMINOSITY
+
+<a name=".blendmodes.blend.destin"></a>
+#### destin
+
+```python
+destin(backgroundAlpha, foregroundAlpha, backgroundColour, _foregroundColour)
+```
+
+'Clip' composite mode
+All parts of 'layer above' which are alpha in 'layer below' will be made
+also alpha in 'layer above'
+(to whatever degree of alpha they were)
+
+Destination which overlaps the source, replaces the source.
+
+Fa = 0; Fb = αs
+co = αb x Cb x αs
+αo = αb x αs
+
+**Arguments**:
+
+- `source`: 
+- `destination`: 
+
+**Returns**:
+
+
+
+<a name=".blendmodes.blend.destout"></a>
+#### destout
+
+```python
+destout(backgroundAlpha, foregroundAlpha, backgroundColour, _foregroundColour)
+```
+
+reverse 'Clip' composite mode
+All parts of 'layer below' which are alpha in 'layer above' will be made
+also alpha in 'layer below'
+(to whatever degree of alpha they were)
+
+**Arguments**:
+
+- `img_in`: 
+- `img_layer`: 
+
+**Returns**:
+
+
+
+<a name=".blendmodes.blend.destatop"></a>
+#### destatop
+
+```python
+destatop(backgroundAlpha, foregroundAlpha, backgroundColour, foregroundColour)
+```
+
+place the layer below above the 'layer above' in places where the 'layer above' exists
+where 'layer below' does not exist, but 'layer above' does, place 'layer-above'
+
+**Arguments**:
+
+- `img_in`: 
+- `img_layer`: 
+
+**Returns**:
+
+
+
+<a name=".blendmodes.blend.srcatop"></a>
+#### srcatop
+
+```python
+srcatop(backgroundAlpha, foregroundAlpha, backgroundColour, foregroundColour)
+```
+
+place the layer below above the 'layer above' in places where the 'layer above' exists
+
+**Arguments**:
+
+- `img_in`: 
+- `img_layer`: 
+
+**Returns**:
+
+
 
 <a name=".blendmodes.blend.blend"></a>
 #### blend

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "blendmodes"
-version = "2020.1"
+version = "2020.2"
 description = "Use this module to apply a number of blending modes to a background and foreground image"
 authors = ["FredHappyface"]
 classifiers = [

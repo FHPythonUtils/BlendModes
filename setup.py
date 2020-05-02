@@ -21,7 +21,7 @@ if os.path.exists(readme_path):
 setup(
     long_description=readme,
     name='blendmodes',
-    version='2020.1',
+    version='2020.2',
     description='Use this module to apply a number of blending modes to a background and foreground image',
     python_requires='==3.*,>=3.6.0',
     project_urls={

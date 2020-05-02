@@ -3,8 +3,18 @@
 Adapted from https://github.com/addisonElliott/pypdn/blob/master/pypdn/reader.py
 and https://gitlab.com/inklabapp/pyora/-/blob/master/pyora/BlendNonSep.py
 MIT License Copyright (c) 2020 FredHappyface
-MIT License Copyright (c) 2018 Addison Elliott
+
+Credits to:
+
 MIT License Copyright (c) 2019 Paul Jewell
+For implementing blending from the Open Raster Image Spec
+
+MIT License Copyright (c) 2018 Addison Elliott
+For implementing blending from Paint.NET
+
+MIT License Copyright (c) 2017 pashango
+For implementing a number of blending functions used by other popular image
+editors
 """
 
 from enum import Enum, auto
@@ -42,6 +52,10 @@ class BlendType(Enum):
 	PINLIGHT = auto()
 	VIVIDLIGHT = auto()
 	EXCLUSION = auto()
+	DESTIN = auto()
+	DESTOUT = auto()
+	SRCATOP = auto()
+	DESTATOP = auto()
 
 def normal(_background, foreground):
 	""" BlendType.NORMAL """
@@ -240,6 +254,85 @@ def luminosity(background, foreground):
 	return _setLum(background, _lum(foreground))
 
 
+def destin(backgroundAlpha, foregroundAlpha, backgroundColour, _foregroundColour):
+	"""
+	'Clip' composite mode
+	All parts of 'layer above' which are alpha in 'layer below' will be made
+	also alpha in 'layer above'
+	(to whatever degree of alpha they were)
+
+	Destination which overlaps the source, replaces the source.
+
+	Fa = 0; Fb = αs
+	co = αb x Cb x αs
+	αo = αb x αs
+
+	:param source:
+	:param destination:
+	:return:
+	"""
+	outAlpha = backgroundAlpha * foregroundAlpha
+	with np.errstate(divide='ignore', invalid="ignore"):
+		outRGB = np.divide(np.multiply((backgroundAlpha *
+		foregroundAlpha)[:, :, None], backgroundColour), outAlpha[:, :, None])
+	return outRGB, outAlpha
+
+
+def destout(backgroundAlpha, foregroundAlpha, backgroundColour, _foregroundColour):
+	"""
+	reverse 'Clip' composite mode
+	All parts of 'layer below' which are alpha in 'layer above' will be made
+	also alpha in 'layer below'
+	(to whatever degree of alpha they were)
+	:param img_in:
+	:param img_layer:
+	:return:
+	"""
+	outAlpha = backgroundAlpha * (1 - foregroundAlpha)
+	with np.errstate(divide='ignore', invalid="ignore"):
+		outRGB = np.divide(np.multiply((backgroundAlpha *
+		(1 - foregroundAlpha))[:, :, None], backgroundColour), outAlpha[:, :, None])
+	return outRGB, outAlpha
+
+def destatop(backgroundAlpha, foregroundAlpha, backgroundColour, foregroundColour):
+	"""
+	place the layer below above the 'layer above' in places where the 'layer above' exists
+	where 'layer below' does not exist, but 'layer above' does, place 'layer-above'
+
+	:param img_in:
+	:param img_layer:
+	:return:
+	"""
+	outAlpha = (foregroundAlpha * (1 - backgroundAlpha)) + (backgroundAlpha * foregroundAlpha)
+	with np.errstate(divide='ignore', invalid="ignore"):
+		outRGB = np.divide(
+			np.multiply((foregroundAlpha * (1 - backgroundAlpha))[:, :, None], foregroundColour) +
+			np.multiply((backgroundAlpha * foregroundAlpha)[:, :, None], backgroundColour),
+			outAlpha[:, :, None]
+		)
+	return outRGB, outAlpha
+
+
+
+def srcatop(backgroundAlpha, foregroundAlpha, backgroundColour, foregroundColour):
+	"""
+	place the layer below above the 'layer above' in places where the 'layer above' exists
+	:param img_in:
+	:param img_layer:
+	:return:
+	"""
+
+	outAlpha = (foregroundAlpha * backgroundAlpha) + (backgroundAlpha * (1 - foregroundAlpha))
+	with np.errstate(divide='ignore', invalid="ignore"):
+		outRGB = np.divide(
+			np.multiply((foregroundAlpha * backgroundAlpha)[:, :, None], foregroundColour) +
+			np.multiply((backgroundAlpha * (1 - foregroundAlpha))[:, :, None], backgroundColour),
+			outAlpha[:, :, None]
+		)
+
+	return outRGB, outAlpha
+
+
 def blend(background, foreground, blendType):
 	"""blend pixels
 
@@ -313,6 +406,15 @@ def blendLayers(background, foreground, blendType, opacity=1.0):
 	# Get the colour from the layers
 	backgroundColor = background[:, :, 0:3]
 	foregroundColor = foreground[:, :, 0:3]
+
+	# Some effects require alpha
+	alphaFunc = {BlendType.DESTIN: destin, BlendType.DESTOUT: destout,
+	BlendType.SRCATOP: srcatop, BlendType.DESTATOP: destatop}
+
+	if blendType in alphaFunc:
+		return Image.fromarray(skimage.img_as_ubyte(np.clip(np.dstack(
+		alphaFunc[blendType](backgroundAlpha, foregroundAlpha, backgroundColor,
+		foregroundColor)), a_min=0, a_max=1)))
 
 	# Get the colours and the alpha for the new image
 	colorComponents = (backgroundAlpha - combinedAlpha)[:, :,

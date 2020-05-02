@@ -14,8 +14,26 @@
 <img src="readme-assets/icons/name.png" alt="Project Icon" width="750">
 
 Use this module to apply a number of blending modes to a background and
-foreground image
+foreground image.
 
+## Credits
+
+Credits to:
+
+### MIT License Copyright (c) 2019 Paul Jewell
+For implementing blending from the Open Raster Image Spec
+
+### MIT License Copyright (c) 2018 Addison Elliott
+For implementing blending from Paint.NET
+
+### MIT License Copyright (c) 2017 pashango
+For implementing a number of blending functions used by other popular image
+editors
+
+- [Credits](#credits)
+	- [MIT License Copyright (c) 2019 Paul Jewell](#mit-license-copyright-c-2019-paul-jewell)
+	- [MIT License Copyright (c) 2018 Addison Elliott](#mit-license-copyright-c-2018-addison-elliott)
+	- [MIT License Copyright (c) 2017 pashango](#mit-license-copyright-c-2017-pashango)
 - [Docs](#docs)
 - [Examples](#examples)
 	- [Normal](#normal)
@@ -44,6 +62,10 @@ foreground image
 	- [PinLight](#pinlight)
 	- [VividLight](#vividlight)
 	- [Exclusion](#exclusion)
+	- [DestIn](#destin)
+	- [DestOut](#destout)
+	- [DestAtop](#destatop)
+	- [SrcAtop](#srcatop)
 - [Install With PIP](#install-with-pip)
 - [Language information](#language-information)
 	- [Built for](#built-for)
@@ -270,6 +292,34 @@ blendLayers(background, foreground, BlendType.EXCLUSION)
 ```
 ![Exclusion](test/exclusion_expected.png)
 
+### DestIn
+
+```python
+blendLayers(background, foreground, BlendType.DESTIN)
+```
+![Exclusion](test/destin_expected.png)
+
+### DestOut
+
+```python
+blendLayers(background, foreground, BlendType.DESTOUT)
+```
+![Exclusion](test/destout_expected.png)
+
+### DestAtop
+
+```python
+blendLayers(background, foreground, BlendType.DESTATOP)
+```
+![Exclusion](test/destatop_expected.png)
+
+### SrcAtop
+
+```python
+blendLayers(background, foreground, BlendType.SRCATOP)
+```
+![Exclusion](test/srcatop_expected.png)
+
 ## Install With PIP
 
 ```python
@@ -371,7 +421,6 @@ More information can be found at
 ## Community Files
 ### Licence
 MIT License
-Copyright (c) FredHappyface
 (See the [LICENSE](/LICENSE.md) for more information.)
 
 ### Changelog

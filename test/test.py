@@ -191,6 +191,34 @@ def test_exclusion():
 	assert(imgcompare.is_equal(blendLayers(background, foreground, BlendType.EXCLUSION),
 	THISDIR + "/exclusion_expected.png", tolerance=1))
 
+def test_destin():
+	""" test destin """
+	background = Image.open(THISDIR + "/background.png")
+	foreground = Image.open(THISDIR + "/foreground.png")
+	assert(imgcompare.is_equal(blendLayers(background, foreground, BlendType.DESTIN),
+	THISDIR + "/destin_expected.png", tolerance=1))
+
+def test_destout():
+	""" test destout """
+	background = Image.open(THISDIR + "/background.png")
+	foreground = Image.open(THISDIR + "/foreground.png")
+	assert(imgcompare.is_equal(blendLayers(background, foreground, BlendType.DESTOUT),
+	THISDIR + "/destout_expected.png", tolerance=1))
+
+def test_destatop():
+	""" test destatop """
+	background = Image.open(THISDIR + "/background.png")
+	foreground = Image.open(THISDIR + "/foreground.png")
+	assert(imgcompare.is_equal(blendLayers(background, foreground, BlendType.DESTATOP),
+	THISDIR + "/destatop_expected.png", tolerance=1))
+
+def test_srcatop():
+	""" test srcatop """
+	background = Image.open(THISDIR + "/background.png")
+	foreground = Image.open(THISDIR + "/foreground.png")
+	assert(imgcompare.is_equal(blendLayers(background, foreground, BlendType.SRCATOP),
+	THISDIR + "/srcatop_expected.png", tolerance=1))
+
 test_normal()
 test_multiply()
 test_additive()
@@ -217,3 +245,7 @@ test_luminosity()
 test_pinlight()
 test_vividlight()
 test_exclusion()
+test_destin()
+test_destout()
+test_destatop()
+test_srcatop()
