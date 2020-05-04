@@ -1,5 +1,5 @@
 [![GitHub top language](https://img.shields.io/github/languages/top/FHPythonUtils/BlendModes.svg?style=for-the-badge)](../../)
-[![Codacy grade](https://img.shields.io/codacy/grade/7df4678b2a2145119898ce3a9be8b5fc.svg?style=for-the-badge)](https://www.codacy.com/manual/FHPythonUtils/BlendModes)
+[![Codacy grade](https://img.shields.io/codacy/grade/7df4678b2a2145119898ce3a9be8b5fc.svg?style=for-the-badge)](https://www.codacy.com/gh/FHPythonUtils/BlendModes)
 [![Repository size](https://img.shields.io/github/repo-size/FHPythonUtils/BlendModes.svg?style=for-the-badge)](../../)
 [![Issues](https://img.shields.io/github/issues/FHPythonUtils/BlendModes.svg?style=for-the-badge)](../../issues)
 [![License](https://img.shields.io/github/license/FHPythonUtils/BlendModes.svg?style=for-the-badge)](/LICENSE.md)
