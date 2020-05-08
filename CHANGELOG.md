@@ -2,7 +2,7 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
-## 2020.2.2 - 2020/05/06
+## 2020.2.2 - 2020/05/08
 - Removed `scikit-image`
 - Now compatible with python 3.5
 
