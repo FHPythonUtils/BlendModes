@@ -21,9 +21,9 @@ if os.path.exists(readme_path):
 setup(
     long_description=readme,
     name='blendmodes',
-    version='2020.2.1',
+    version='2020.2.2',
     description='Use this module to apply a number of blending modes to a background and foreground image',
-    python_requires='==3.*,>=3.6.0',
+    python_requires='==3.*,>=3.5.0',
     project_urls={
         "documentation":
             "https://github.com/FHPythonUtils/BlendModes/blob/master/README.md",
@@ -39,6 +39,7 @@ setup(
         'License :: OSI Approved :: MIT License', 'Natural Language :: English',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
@@ -50,9 +51,6 @@ setup(
     packages=['BlendModes'],
     package_dir={"": "."},
     package_data={},
-    install_requires=[
-        'numpy==1.*,>=1.18.3', 'pillow==7.*,>=7.1.2',
-        'scikit-image==0.*,>=0.16.2'
-    ],
+    install_requires=['numpy==1.*,>=1.18.3', 'pillow==7.*,>=7.1.2'],
     extras_require={"dev": ["imgcompare==2.*,>=2.0.1"]},
 )

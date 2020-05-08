@@ -20,7 +20,6 @@ editors
 from enum import Enum, auto
 import warnings
 import numpy as np
-import skimage
 from PIL import Image
 
 class BlendType(Enum):
@@ -123,8 +122,8 @@ def xor(background, foreground):
 	# XOR requires int values so convert to uint8
 	with warnings.catch_warnings():
 		warnings.simplefilter('ignore')
-		return skimage.img_as_float(skimage.img_as_uint(background) ^
-		skimage.img_as_uint(foreground))
+		return imageIntToFloat(imageFloatToInt(background) ^
+		imageFloatToInt(foreground))
 
 def softlight(background, foreground):
 	""" BlendType.SOFTLIGHT """
@@ -332,6 +331,23 @@ def srcatop(backgroundAlpha, foregroundAlpha, backgroundColour, foregroundColour
 
 	return outRGB, outAlpha
 
+def imageIntToFloat(image):
+	"""Convert a numpy array representing an image to an array of floats
+
+	Args:
+		image (np.array(int)): A numpy array of int values
+	"""
+	return image/255
+
+
+def imageFloatToInt(image):
+	"""Convert a numpy array representing an image to an array of ints
+
+	Args:
+		image (np.array(float)): A numpy array of float values
+	"""
+	return (image*255).astype(np.uint8)
+
 
 def blend(background, foreground, blendType):
 	"""blend pixels
@@ -395,8 +411,8 @@ def blendLayers(background, foreground, blendType, opacity=1.0):
 		PIL.Image: combined image
 	"""
 	# Convert the PIL.Image to a numpy array
-	foreground = skimage.img_as_float(np.array(foreground))
-	background = skimage.img_as_float(np.array(background))
+	foreground = imageIntToFloat(np.array(foreground))
+	background = imageIntToFloat(np.array(background))
 
 	# Get the alpha from the layers
 	backgroundAlpha = background[:, :, 3]
@@ -412,7 +428,7 @@ def blendLayers(background, foreground, blendType, opacity=1.0):
 	BlendType.SRCATOP: srcatop, BlendType.DESTATOP: destatop}
 
 	if blendType in alphaFunc:
-		return Image.fromarray(skimage.img_as_ubyte(np.clip(np.dstack(
+		return Image.fromarray(imageFloatToInt(np.clip(np.dstack(
 		alphaFunc[blendType](backgroundAlpha, foregroundAlpha, backgroundColor,
 		foregroundColor)), a_min=0, a_max=1)))
 
@@ -423,5 +439,5 @@ def blendLayers(background, foreground, blendType, opacity=1.0):
 	foregroundColor, blendType)
 	alphaComponent = backgroundAlpha + foregroundAlpha - combinedAlpha
 
-	return Image.fromarray(skimage.img_as_ubyte(np.clip(
+	return Image.fromarray(imageFloatToInt(np.clip(
 		np.dstack((colorComponents, alphaComponent)), a_min=0, a_max=1)))

@@ -353,6 +353,32 @@ place the layer below above the 'layer above' in places where the 'layer above' 
 
 
 
+<a name=".blendmodes.blend.imageIntToFloat"></a>
+#### imageIntToFloat
+
+```python
+imageIntToFloat(image)
+```
+
+Convert a numpy array representing an image to an array of floats
+
+**Arguments**:
+
+  image (np.array(int)): A numpy array of int values
+
+<a name=".blendmodes.blend.imageFloatToInt"></a>
+#### imageFloatToInt
+
+```python
+imageFloatToInt(image)
+```
+
+Convert a numpy array representing an image to an array of ints
+
+**Arguments**:
+
+  image (np.array(float)): A numpy array of float values
+
 <a name=".blendmodes.blend.blend"></a>
 #### blend
 
