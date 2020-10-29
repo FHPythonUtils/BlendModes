@@ -326,7 +326,7 @@ Head to https://pypi.org/project/blendmodes/ for more info
 ## Language information
 ### Built for
 This program has been written for Python 3 and has been tested with
-Python version 3.8.0 <https://www.python.org/downloads/release/python-380/>.
+Python version 3.9.0 <https://www.python.org/downloads/release/python-380/>.
 
 ## Install Python on Windows
 ### Chocolatey
@@ -340,14 +340,14 @@ version.
 ## Install Python on Linux
 ### Apt
 ```bash
-sudo apt install python3.8
+sudo apt install python3.9
 ```
 
 ## How to run
 ### With VSCode
 1. Open the .py file in vscode
-2. Ensure a python 3.8 interpreter is selected (Ctrl+Shift+P > Python:Select
-Interpreter > Python 3.8)
+2. Ensure a python 3.9 interpreter is selected (Ctrl+Shift+P > Python:Select
+Interpreter > Python 3.9)
 3. Run by pressing Ctrl+F5 (if you are prompted to install any modules, accept)
 ### From the Terminal
 ```bash
