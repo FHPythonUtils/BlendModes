@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "blendmodes"
-version = "2020.2.2"
+version = "2020.3.0"
 description = "Use this module to apply a number of blending modes to a background and foreground image"
 authors = ["FredHappyface"]
 classifiers = [
@@ -11,10 +11,9 @@ classifiers = [
 	"Natural Language :: English",
 	"Operating System :: OS Independent",
 	"Programming Language :: Python :: 3",
-	"Programming Language :: Python :: 3.5",
-	"Programming Language :: Python :: 3.6",
 	"Programming Language :: Python :: 3.7",
 	"Programming Language :: Python :: 3.8",
+	"Programming Language :: Python :: 3.9",
 	"Programming Language :: Python :: Implementation :: CPython",
 	"Topic :: Multimedia :: Graphics",
 	"Topic :: Software Development :: Libraries :: Python Modules",
@@ -26,13 +25,13 @@ documentation = "https://github.com/FHPythonUtils/BlendModes/blob/master/README.
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.5"
-pillow = "^7.1.2"
-numpy = "^1.18.3"
+python = "^3.7"
+Pillow = "<10,>=8.0.1"
+numpy = "<3,>=1.19.3"
+data-science-types = "<2,>=0.2.19"
 
 [tool.poetry.dev-dependencies]
 imgcompare = "^2.0.1"
-
 [tool.dephell.main]
 from = "pyproject.toml"
 to = "requirements.txt"
