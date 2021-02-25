@@ -1,12 +1,12 @@
 [![GitHub top language](https://img.shields.io/github/languages/top/FHPythonUtils/BlendModes.svg?style=for-the-badge)](../../)
-[![Codacy grade](https://img.shields.io/codacy/grade/7df4678b2a2145119898ce3a9be8b5fc.svg?style=for-the-badge)](https://www.codacy.com/gh/FHPythonUtils/BlendModes)
 [![Repository size](https://img.shields.io/github/repo-size/FHPythonUtils/BlendModes.svg?style=for-the-badge)](../../)
 [![Issues](https://img.shields.io/github/issues/FHPythonUtils/BlendModes.svg?style=for-the-badge)](../../issues)
 [![License](https://img.shields.io/github/license/FHPythonUtils/BlendModes.svg?style=for-the-badge)](/LICENSE.md)
 [![Commit activity](https://img.shields.io/github/commit-activity/m/FHPythonUtils/BlendModes.svg?style=for-the-badge)](../../commits/master)
 [![Last commit](https://img.shields.io/github/last-commit/FHPythonUtils/BlendModes.svg?style=for-the-badge)](../../commits/master)
-[![PyPI Downloads](https://img.shields.io/pypi/dm/blendmodes.svg?style=for-the-badge)](https://pypi.org/project/blendmodes/)
-[![PyPI Version](https://img.shields.io/pypi/v/blendmodes.svg?style=for-the-badge)](https://pypi.org/project/blendmodes/)
+[![PyPI Downloads](https://img.shields.io/pypi/dm/blendmodes.svg?style=for-the-badge)](https://pypistats.org/packages/blendmodes)
+[![PyPI Total Downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&label=total%20downloads&query=%24.total_downloads&url=https%3A%2F%2Fapi.pepy.tech%2Fapi%2Fprojects%2Fblendmodes)](https://pepy.tech/project/blendmodes)
+[![PyPI Version](https://img.shields.io/pypi/v/blendmodes.svg?style=for-the-badge)](https://pypi.org/project/blendmodes)
 
 <!-- omit in TOC -->
 # BlendModes
@@ -34,7 +34,6 @@ editors
 	- [MIT License Copyright (c) 2019 Paul Jewell](#mit-license-copyright-c-2019-paul-jewell)
 	- [MIT License Copyright (c) 2018 Addison Elliott](#mit-license-copyright-c-2018-addison-elliott)
 	- [MIT License Copyright (c) 2017 pashango](#mit-license-copyright-c-2017-pashango)
-- [Docs](#docs)
 - [Examples](#examples)
 	- [Normal](#normal)
 	- [Multiply](#multiply)
@@ -66,6 +65,7 @@ editors
 	- [DestOut](#destout)
 	- [DestAtop](#destatop)
 	- [SrcAtop](#srcatop)
+- [Documentation](#documentation)
 - [Install With PIP](#install-with-pip)
 - [Language information](#language-information)
 	- [Built for](#built-for)
@@ -77,7 +77,7 @@ editors
 - [How to run](#how-to-run)
 	- [With VSCode](#with-vscode)
 	- [From the Terminal](#from-the-terminal)
-- [Download](#download-1)
+- [Download Project](#download-project)
 	- [Clone](#clone)
 		- [Using The Command Line](#using-the-command-line)
 		- [Using GitHub Desktop](#using-github-desktop)
@@ -88,10 +88,8 @@ editors
 	- [Code of Conduct](#code-of-conduct)
 	- [Contributing](#contributing)
 	- [Security](#security)
-
-## Docs
-See the [Docs](/DOCS.md) for more information.
-
+	- [Support](#support)
+	- [Rationale](#rationale)
 
 
 ## Examples
@@ -314,6 +312,12 @@ blendLayers(background, foreground, BlendType.SRCATOP)
 ```
 ![Exclusion](test/srcatop_expected.png)
 
+
+## Documentation
+See the [Docs](/DOCS/README.md) for more information.
+
+
+
 ## Install With PIP
 
 ```python
@@ -355,7 +359,7 @@ Interpreter > Python 3.9)
 ```
 
 
-## Download
+## Download Project
 ### Clone
 #### Using The Command Line
 1. Press the Clone or download button in the top right
@@ -393,14 +397,31 @@ MIT License
 See the [Changelog](/CHANGELOG.md) for more information.
 
 ### Code of Conduct
-In the interest of fostering an open and welcoming environment, we
-as contributors and maintainers pledge to make participation in our
-project and our community a harassment-free experience for everyone.
-Please see the
-[Code of Conduct](https://github.com/FHPythonUtils/.github/blob/master/CODE_OF_CONDUCT.md) for more information.
+Online communities include people from many backgrounds. The *Project*
+contributors are committed to providing a friendly, safe and welcoming
+environment for all. Please see the
+[Code of Conduct](https://github.com/FHPythonUtils/.github/blob/master/CODE_OF_CONDUCT.md)
+ for more information.
 
 ### Contributing
-Contributions are welcome, please see the [Contributing Guidelines](https://github.com/FHPythonUtils/.github/blob/master/CONTRIBUTING.md) for more information.
+Contributions are welcome, please see the
+[Contributing Guidelines](https://github.com/FHPythonUtils/.github/blob/master/CONTRIBUTING.md)
+for more information.
 
 ### Security
-Thank you for improving the security of the project, please see the [Security Policy](https://github.com/FHPythonUtils/.github/blob/master/SECURITY.md) for more information.
+Thank you for improving the security of the project, please see the
+[Security Policy](https://github.com/FHPythonUtils/.github/blob/master/SECURITY.md)
+for more information.
+
+### Support
+Thank you for using this project, I hope it is of use to you. Please be aware that
+those involved with the project often do so for fun along with other commitments
+(such as work, family, etc). Please see the
+[Support Policy](https://github.com/FHPythonUtils/.github/blob/master/SUPPORT.md)
+for more information.
+
+### Rationale
+The rationale acts as a guide to various processes regarding projects such as
+the versioning scheme and the programming styles used. Please see the
+[Rationale](https://github.com/FHPythonUtils/.github/blob/master/RATIONALE.md)
+for more information.
