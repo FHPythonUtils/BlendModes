@@ -2,7 +2,7 @@
 
 > Auto-generated documentation for [blendmodes.imagetools](../../blendmodes/imagetools.py) module.
 
-Do stuff to images to prepare them
+Do stuff to images to prepare them.
 
 - [Blendmodes](../README.md#blendmodes-index) / [Modules](../README.md#blendmodes-modules) / [blendmodes](index.md#blendmodes) / imagetools
     - [rasterImageOA](#rasterimageoa)
@@ -10,7 +10,7 @@ Do stuff to images to prepare them
 
 ## rasterImageOA
 
-[[find in source code]](../../blendmodes/imagetools.py#L7)
+[[find in source code]](../../blendmodes/imagetools.py#L8)
 
 ```python
 def rasterImageOA(
@@ -21,15 +21,15 @@ def rasterImageOA(
 ) -> Image.Image:
 ```
 
-Rasterise an image with offset and alpha to a given size
+Rasterise an image with offset and alpha to a given size.
 
 #### Arguments
 
 - `image` *Image.Image* - pil image to draw
 size (Tuple[int, int]): width, height as a tuple
 - `alpha` *float, optional* - alpha transparency. Defaults to 1.0.
-   offsets (Tuple[int, int], optional): x, y offsets as a tuple.
-   Defaults to (0, 0).
+offsets (Tuple[int, int], optional): x, y offsets as a tuple.
+Defaults to (0, 0).
 
 #### Returns
 
@@ -37,7 +37,7 @@ size (Tuple[int, int]): width, height as a tuple
 
 ## rasterImageOffset
 
-[[find in source code]](../../blendmodes/imagetools.py#L24)
+[[find in source code]](../../blendmodes/imagetools.py#L27)
 
 ```python
 def rasterImageOffset(
@@ -47,14 +47,14 @@ def rasterImageOffset(
 ):
 ```
 
-Rasterise an image with offset to a given size
+Rasterise an image with offset to a given size.
 
 #### Arguments
 
 - `image` *Image.Image* - pil image to draw
 size (Tuple[int, int]): width, height as a tuple
-   offsets (Tuple[int, int], optional): x, y offsets as a tuple.
-   Defaults to (0, 0).
+offsets (Tuple[int, int], optional): x, y offsets as a tuple.
+Defaults to (0, 0).
 
 #### Returns
 

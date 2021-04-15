@@ -2,6 +2,12 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
+## 2021 - 2021/04/16
+- Updated typing (removed data-science-types)
+- Updated formatting
+- Improved docstrings
+- Update tests
+
 ## 2020.3 - 2020/10/29
 - Using FHMake to build
 - Added type hinting

@@ -1,3 +1,2 @@
 Pillow<10,>=8.0.1
-data-science-types<2,>=0.2.19
 numpy<3,>=1.19.3
