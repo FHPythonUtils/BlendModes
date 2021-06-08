@@ -1,41 +1,42 @@
 """Do stuff to images to prepare them.
 """
-from typing import Tuple
+import warnings
 
 from PIL import Image
 
 
-def rasterImageOA(
-	image: Image.Image, size: Tuple[int, int], alpha: float = 1.0, offsets: Tuple[int, int] = (0, 0)
+def rasterImageOA(  # pylint:disable=missing-function-docstring
+	image: Image.Image, size: tuple[int, int], alpha: float = 1.0, offsets: tuple[int, int] = (0, 0)
 ) -> Image.Image:
-	"""Rasterise an image with offset and alpha to a given size.
+	warnings.warn(
+		"Call to deprecated function rasterImageOA.", category=DeprecationWarning, stacklevel=2
+	)
+	return renderWAlphaOffset(image, size, alpha, offsets)
+
+
+def rasterImageOffset(  # pylint:disable=missing-function-docstring
+	image: Image.Image, size: tuple[int, int], offsets: tuple[int, int] = (0, 0)
+) -> Image.Image:
+	warnings.warn(
+		"Call to deprecated function rasterImageOffset.", category=DeprecationWarning, stacklevel=2
+	)
+	return renderWAlphaOffset(image, size, 1, offsets)
+
+
+def renderWAlphaOffset(
+	image: Image.Image, size: tuple[int, int], alpha: float = 1.0, offsets: tuple[int, int] = (0, 0)
+) -> Image.Image:
+	"""Render an image with offset and alpha to a given size.
 
 	Args:
 		image (Image.Image): pil image to draw
-		size (Tuple[int, int]): width, height as a tuple
+		size (tuple[int, int]): width, height as a tuple
 		alpha (float, optional): alpha transparency. Defaults to 1.0.
-		offsets (Tuple[int, int], optional): x, y offsets as a tuple.
+		offsets (tuple[int, int], optional): x, y offsets as a tuple.
 		Defaults to (0, 0).
-
-	Returns:
-		Image.Image: new image
-	"""
-	imageOffset = rasterImageOffset(image, size, offsets)
-	return Image.blend(Image.new("RGBA", size), imageOffset, alpha)
-
-
-def rasterImageOffset(image: Image.Image, size: Tuple[int, int], offsets: Tuple[int, int] = (0, 0)):
-	"""Rasterise an image with offset to a given size.
-
-	Args:
-		image (Image.Image): pil image to draw
-		size (Tuple[int, int]): width, height as a tuple
-		offsets (Tuple[int, int], optional): x, y offsets as a tuple.
-		Defaults to (0, 0).
-
 	Returns:
 		Image.Image: new image
 	"""
 	imageOffset = Image.new("RGBA", size)
 	imageOffset.paste(image.convert("RGBA"), offsets, image.convert("RGBA"))
-	return imageOffset
+	return Image.blend(Image.new("RGBA", size), imageOffset, alpha)
