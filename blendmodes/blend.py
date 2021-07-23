@@ -20,45 +20,11 @@ editors
 from __future__ import annotations
 
 import warnings
-from enum import Enum, auto
 
 import numpy as np
 from PIL import Image
 
-
-class BlendType(Enum):
-	"""Specify supported blend types."""
-
-	NORMAL = auto()
-	MULTIPLY = auto()
-	ADDITIVE = auto()
-	COLOURBURN = auto()
-	COLOURDODGE = auto()
-	REFLECT = auto()
-	GLOW = auto()
-	OVERLAY = auto()
-	DIFFERENCE = auto()
-	NEGATION = auto()
-	LIGHTEN = auto()
-	DARKEN = auto()
-	SCREEN = auto()
-	XOR = auto()
-	SOFTLIGHT = auto()
-	HARDLIGHT = auto()
-	GRAINEXTRACT = auto()
-	GRAINMERGE = auto()
-	DIVIDE = auto()
-	HUE = auto()
-	SATURATION = auto()
-	COLOUR = auto()
-	LUMINOSITY = auto()
-	PINLIGHT = auto()
-	VIVIDLIGHT = auto()
-	EXCLUSION = auto()
-	DESTIN = auto()
-	DESTOUT = auto()
-	SRCATOP = auto()
-	DESTATOP = auto()
+from .blendtype import BlendType
 
 
 def normal(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:

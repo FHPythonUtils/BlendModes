@@ -11,9 +11,10 @@ Do stuff to images to prepare them.
 
 ## rasterImageOA
 
-[[find in source code]](../../blendmodes/imagetools.py#L8)
+[[find in source code]](../../blendmodes/imagetools.py#L11)
 
 ```python
+@deprecated('use renderWAlphaOffset', version='2021.1')
 def rasterImageOA(
     image: Image.Image,
     size: tuple[(int, int)],
@@ -24,9 +25,10 @@ def rasterImageOA(
 
 ## rasterImageOffset
 
-[[find in source code]](../../blendmodes/imagetools.py#L17)
+[[find in source code]](../../blendmodes/imagetools.py#L21)
 
 ```python
+@deprecated('use renderWAlphaOffset', version='2021.1')
 def rasterImageOffset(
     image: Image.Image,
     size: tuple[(int, int)],
@@ -36,7 +38,7 @@ def rasterImageOffset(
 
 ## renderWAlphaOffset
 
-[[find in source code]](../../blendmodes/imagetools.py#L26)
+[[find in source code]](../../blendmodes/imagetools.py#L31)
 
 ```python
 def renderWAlphaOffset(

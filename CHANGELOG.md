@@ -2,6 +2,10 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
+## 2021.2 - 2021/07/23
+- Mark deprecated functions with @deprecated decorator
+- add blendtype.py and change BlendType to str enum
+
 ## 2021.1 - 2021/06/08
 - Deprecated 'raster' functions and replaced with more accurate naming
 - Typing improvements

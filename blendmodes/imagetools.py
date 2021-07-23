@@ -1,10 +1,14 @@
 """Do stuff to images to prepare them.
 """
+from __future__ import annotations
+
 import warnings
 
+from deprecated import deprecated
 from PIL import Image
 
 
+@deprecated("use renderWAlphaOffset", version="2021.1")
 def rasterImageOA(  # pylint:disable=missing-function-docstring
 	image: Image.Image, size: tuple[int, int], alpha: float = 1.0, offsets: tuple[int, int] = (0, 0)
 ) -> Image.Image:
@@ -14,6 +18,7 @@ def rasterImageOA(  # pylint:disable=missing-function-docstring
 	return renderWAlphaOffset(image, size, alpha, offsets)
 
 
+@deprecated("use renderWAlphaOffset", version="2021.1")
 def rasterImageOffset(  # pylint:disable=missing-function-docstring
 	image: Image.Image, size: tuple[int, int], offsets: tuple[int, int] = (0, 0)
 ) -> Image.Image:
@@ -34,6 +39,7 @@ def renderWAlphaOffset(
 		alpha (float, optional): alpha transparency. Defaults to 1.0.
 		offsets (tuple[int, int], optional): x, y offsets as a tuple.
 		Defaults to (0, 0).
+
 	Returns:
 		Image.Image: new image
 	"""
