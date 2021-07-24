@@ -2,6 +2,9 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
+## 2021.3 - 2021/07/24
+- use aenum
+
 ## 2021.2 - 2021/07/23
 - Mark deprecated functions with @deprecated decorator
 - add blendtype.py and change BlendType to str enum

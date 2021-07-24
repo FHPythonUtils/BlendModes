@@ -1,3 +1,4 @@
 Deprecated<2,>=1.2.12
 Pillow<9,>=8.2.0
+aenum<4,>=3.1.0
 numpy<2,>=1.20.3
