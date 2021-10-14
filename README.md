@@ -71,12 +71,16 @@ editors
 	- [Built for](#built-for)
 - [Install Python on Windows](#install-python-on-windows)
 	- [Chocolatey](#chocolatey)
-	- [Download](#download)
+	- [Windows - Python.org](#windows---pythonorg)
 - [Install Python on Linux](#install-python-on-linux)
 	- [Apt](#apt)
+	- [Dnf](#dnf)
+- [Install Python on MacOS](#install-python-on-macos)
+	- [Homebrew](#homebrew)
+	- [MacOS - Python.org](#macos---pythonorg)
 - [How to run](#how-to-run)
-	- [With VSCode](#with-vscode)
-	- [From the Terminal](#from-the-terminal)
+	- [Windows](#windows)
+	- [Linux/ MacOS](#linux-macos)
 - [Download Project](#download-project)
 	- [Clone](#clone)
 		- [Using The Command Line](#using-the-command-line)
@@ -91,10 +95,10 @@ editors
 	- [Support](#support)
 	- [Rationale](#rationale)
 
-
 ## Examples
 
 Be sure to include the following for the functions below
+
 ```python
 from blendmodes.blend import blendLayers, BlendType
 
@@ -107,6 +111,7 @@ foreground = Image.open(THISDIR + "/foreground.png")
 ```python
 blendLayers(background, foreground, BlendType.NORMAL)
 ```
+
 ![Normal](test/normal_expected.png)
 
 ### Multiply
@@ -114,6 +119,7 @@ blendLayers(background, foreground, BlendType.NORMAL)
 ```python
 blendLayers(background, foreground, BlendType.MULTIPLY)
 ```
+
 ![Multiply](test/multiply_expected.png)
 
 ### Additive
@@ -121,6 +127,7 @@ blendLayers(background, foreground, BlendType.MULTIPLY)
 ```python
 blendLayers(background, foreground, BlendType.ADDITIVE)
 ```
+
 ![Additive](test/additive_expected.png)
 
 ### ColourBurn
@@ -128,6 +135,7 @@ blendLayers(background, foreground, BlendType.ADDITIVE)
 ```python
 blendLayers(background, foreground, BlendType.COLOURBURN)
 ```
+
 ![ColourBurn](test/colourburn_expected.png)
 
 ### ColourDodge
@@ -135,6 +143,7 @@ blendLayers(background, foreground, BlendType.COLOURBURN)
 ```python
 blendLayers(background, foreground, BlendType.COLOURDODGE)
 ```
+
 ![ColourDodge](test/colourdodge_expected.png)
 
 ### Reflect
@@ -142,6 +151,7 @@ blendLayers(background, foreground, BlendType.COLOURDODGE)
 ```python
 blendLayers(background, foreground, BlendType.REFLECT)
 ```
+
 ![Reflect](test/reflect_expected.png)
 
 ### Glow
@@ -149,6 +159,7 @@ blendLayers(background, foreground, BlendType.REFLECT)
 ```python
 blendLayers(background, foreground, BlendType.GLOW)
 ```
+
 ![Glow](test/glow_expected.png)
 
 ### Overlay
@@ -156,6 +167,7 @@ blendLayers(background, foreground, BlendType.GLOW)
 ```python
 blendLayers(background, foreground, BlendType.OVERLAY)
 ```
+
 ![Overlay](test/overlay_expected.png)
 
 ### Difference
@@ -163,6 +175,7 @@ blendLayers(background, foreground, BlendType.OVERLAY)
 ```python
 blendLayers(background, foreground, BlendType.DIFFERENCE)
 ```
+
 ![Difference](test/difference_expected.png)
 
 ### Negation
@@ -170,6 +183,7 @@ blendLayers(background, foreground, BlendType.DIFFERENCE)
 ```python
 blendLayers(background, foreground, BlendType.NEGATION)
 ```
+
 ![Negation](test/negation_expected.png)
 
 ### Lighten
@@ -177,6 +191,7 @@ blendLayers(background, foreground, BlendType.NEGATION)
 ```python
 blendLayers(background, foreground, BlendType.LIGHTEN)
 ```
+
 ![Lighten](test/lighten_expected.png)
 
 ### Darken
@@ -184,6 +199,7 @@ blendLayers(background, foreground, BlendType.LIGHTEN)
 ```python
 blendLayers(background, foreground, BlendType.DARKEN)
 ```
+
 ![Darken](test/darken_expected.png)
 
 ### Screen
@@ -191,6 +207,7 @@ blendLayers(background, foreground, BlendType.DARKEN)
 ```python
 blendLayers(background, foreground, BlendType.SCREEN)
 ```
+
 ![Screen](test/screen_expected.png)
 
 ### XOR
@@ -198,6 +215,7 @@ blendLayers(background, foreground, BlendType.SCREEN)
 ```python
 blendLayers(background, foreground, BlendType.XOR)
 ```
+
 ![XOR](test/xor_expected.png)
 
 ### SoftLight
@@ -205,6 +223,7 @@ blendLayers(background, foreground, BlendType.XOR)
 ```python
 blendLayers(background, foreground, BlendType.SOFTLIGHT)
 ```
+
 ![SoftLight](test/softlight_expected.png)
 
 ### HardLight
@@ -212,6 +231,7 @@ blendLayers(background, foreground, BlendType.SOFTLIGHT)
 ```python
 blendLayers(background, foreground, BlendType.HARDLIGHT)
 ```
+
 ![HardLight](test/hardlight_expected.png)
 
 ### GrainExtract
@@ -219,6 +239,7 @@ blendLayers(background, foreground, BlendType.HARDLIGHT)
 ```python
 blendLayers(background, foreground, BlendType.GRAINEXTRACT)
 ```
+
 ![GrainExtract](test/grainextract_expected.png)
 
 ### GrainMerge
@@ -226,6 +247,7 @@ blendLayers(background, foreground, BlendType.GRAINEXTRACT)
 ```python
 blendLayers(background, foreground, BlendType.GRAINMERGE)
 ```
+
 ![GrainMerge](test/grainmerge_expected.png)
 
 ### Divide
@@ -233,6 +255,7 @@ blendLayers(background, foreground, BlendType.GRAINMERGE)
 ```python
 blendLayers(background, foreground, BlendType.DIVIDE)
 ```
+
 ![Divide](test/divide_expected.png)
 
 ### Hue
@@ -240,6 +263,7 @@ blendLayers(background, foreground, BlendType.DIVIDE)
 ```python
 blendLayers(background, foreground, BlendType.HUE)
 ```
+
 ![Hue](test/hue_expected.png)
 
 ### Saturation
@@ -247,6 +271,7 @@ blendLayers(background, foreground, BlendType.HUE)
 ```python
 blendLayers(background, foreground, BlendType.SATURATION)
 ```
+
 ![Saturation](test/saturation_expected.png)
 
 ### Colour
@@ -254,6 +279,7 @@ blendLayers(background, foreground, BlendType.SATURATION)
 ```python
 blendLayers(background, foreground, BlendType.COLOUR)
 ```
+
 ![Colour](test/colour_expected.png)
 
 ### Luminosity
@@ -261,6 +287,7 @@ blendLayers(background, foreground, BlendType.COLOUR)
 ```python
 blendLayers(background, foreground, BlendType.LUMINOSITY)
 ```
+
 ![Luminosity](test/luminosity_expected.png)
 
 ### PinLight
@@ -268,6 +295,7 @@ blendLayers(background, foreground, BlendType.LUMINOSITY)
 ```python
 blendLayers(background, foreground, BlendType.PINLIGHT)
 ```
+
 ![PinLight](test/pinlight_expected.png)
 
 ### VividLight
@@ -275,6 +303,7 @@ blendLayers(background, foreground, BlendType.PINLIGHT)
 ```python
 blendLayers(background, foreground, BlendType.VIVIDLIGHT)
 ```
+
 ![VividLight](test/vividlight_expected.png)
 
 ### Exclusion
@@ -282,6 +311,7 @@ blendLayers(background, foreground, BlendType.VIVIDLIGHT)
 ```python
 blendLayers(background, foreground, BlendType.EXCLUSION)
 ```
+
 ![Exclusion](test/exclusion_expected.png)
 
 ### DestIn
@@ -289,6 +319,7 @@ blendLayers(background, foreground, BlendType.EXCLUSION)
 ```python
 blendLayers(background, foreground, BlendType.DESTIN)
 ```
+
 ![Exclusion](test/destin_expected.png)
 
 ### DestOut
@@ -296,6 +327,7 @@ blendLayers(background, foreground, BlendType.DESTIN)
 ```python
 blendLayers(background, foreground, BlendType.DESTOUT)
 ```
+
 ![Exclusion](test/destout_expected.png)
 
 ### DestAtop
@@ -303,6 +335,7 @@ blendLayers(background, foreground, BlendType.DESTOUT)
 ```python
 blendLayers(background, foreground, BlendType.DESTATOP)
 ```
+
 ![Exclusion](test/destatop_expected.png)
 
 ### SrcAtop
@@ -310,13 +343,11 @@ blendLayers(background, foreground, BlendType.DESTATOP)
 ```python
 blendLayers(background, foreground, BlendType.SRCATOP)
 ```
-![Exclusion](test/srcatop_expected.png)
 
+![Exclusion](test/srcatop_expected.png)
 
 ## Documentation
 See the [Docs](/DOCS/) for more information.
-
-
 
 ## Install With PIP
 
@@ -326,61 +357,92 @@ pip install blendmodes
 
 Head to https://pypi.org/project/blendmodes/ for more info
 
-
 ## Language information
 ### Built for
-This program has been written for Python 3 and has been tested with
-Python version 3.9.0 <https://www.python.org/downloads/release/python-380/>.
+This program has been written for Python versions 3.7 - 3.10 and has been tested with both 3.7 and 3.10
 
 ## Install Python on Windows
 ### Chocolatey
+
 ```powershell
 choco install python
 ```
-### Download
-To install Python, go to <https://www.python.org/> and download the latest
+
+### Windows - Python.org
+To install Python, go to https://www.python.org/downloads/windows/ and download the latest
 version.
 
 ## Install Python on Linux
 ### Apt
+
 ```bash
-sudo apt install python3.9
+sudo apt install python3.x
 ```
+
+### Dnf
+
+```bash
+sudo dnf install python3.x
+```
+
+## Install Python on MacOS
+### Homebrew
+
+```bash
+brew install python@3.x
+```
+
+### MacOS - Python.org
+To install Python, go to https://www.python.org/downloads/macos/ and download the latest
+version.
 
 ## How to run
-### With VSCode
-1. Open the .py file in vscode
-2. Ensure a python 3.9 interpreter is selected (Ctrl+Shift+P > Python:Select
-Interpreter > Python 3.9)
-3. Run by pressing Ctrl+F5 (if you are prompted to install any modules, accept)
-### From the Terminal
-```bash
-./[file].py
-```
+### Windows
 
+- Module
+
+	`python -3.x -m [module]` or `[module]` (if module installs a script)
+
+- File
+
+	`python -3.x [file]` or `./[file]`
+
+### Linux/ MacOS
+
+- Module
+
+	`python3.x -m [module]` or `[module]` (if module installs a script)
+
+- File
+
+	`python3.x [file]` or `./[file]`
 
 ## Download Project
+
 ### Clone
 #### Using The Command Line
+
 1. Press the Clone or download button in the top right
 2. Copy the URL (link)
 3. Open the command line and change directory to where you wish to
 clone to
 4. Type 'git clone' followed by URL in step 2
-```bash
-$ git clone https://github.com/FHPythonUtils/BlendModes
-```
+
+	```bash
+	git clone https://github.com/FHPythonUtils/BlendModes
+	```
 
 More information can be found at
-<https://help.github.com/en/articles/cloning-a-repository>
+https://help.github.com/en/articles/cloning-a-repository
 
 #### Using GitHub Desktop
+
 1. Press the Clone or download button in the top right
 2. Click open in desktop
 3. Choose the path for where you want and click Clone
 
 More information can be found at
-<https://help.github.com/en/desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop>
+https://help.github.com/en/desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop
 
 ### Download Zip File
 
