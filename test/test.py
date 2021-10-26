@@ -344,6 +344,12 @@ def test_srcatop():
 	)
 
 
+def test_non_rgba():
+	background = Image.open(THISDIR + "/background.jpg")
+	foreground = Image.open(THISDIR + "/foreground.jpg")
+	blendLayers(background, foreground, BlendType.NORMAL)
+
+
 test_normal()
 test_multiply()
 test_additive()
@@ -374,3 +380,4 @@ test_destin()
 test_destout()
 test_destatop()
 test_srcatop()
+test_non_rgba()

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import warnings
 
-from deprecated import deprecated
+from deprecation import deprecated
 from PIL import Image
 
 

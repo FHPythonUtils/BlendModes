@@ -446,7 +446,10 @@ def blend(background: np.ndarray, foreground: np.ndarray, blendType: BlendType) 
 
 
 def blendLayers(
-	background: Image.Image, foreground: Image.Image, blendType: BlendType, opacity: float = 1.0
+	background: Image.Image,
+	foreground: Image.Image,
+	blendType: BlendType | tuple[str, ...],
+	opacity: float = 1.0,
 ) -> Image.Image:
 	"""Blend layers using numpy array.
 
@@ -460,8 +463,8 @@ def blendLayers(
 		Image.Image: combined image
 	"""
 	# Convert the Image.Image to a numpy array
-	npForeground: np.ndarray = imageIntToFloat(np.array(foreground))
-	npBackground: np.ndarray = imageIntToFloat(np.array(background))
+	npForeground: np.ndarray = imageIntToFloat(np.array(foreground.convert("RGBA")))
+	npBackground: np.ndarray = imageIntToFloat(np.array(background.convert("RGBA")))
 
 	# Get the alpha from the layers
 	backgroundAlpha = npBackground[:, :, 3]
