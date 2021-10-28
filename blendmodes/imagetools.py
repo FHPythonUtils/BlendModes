@@ -8,7 +8,7 @@ from deprecation import deprecated
 from PIL import Image
 
 
-@deprecated("use renderWAlphaOffset", version="2021.1")
+@deprecated(deprecated_in="2021.1", removed_in="", details="use renderWAlphaOffset")
 def rasterImageOA(  # pylint:disable=missing-function-docstring
 	image: Image.Image, size: tuple[int, int], alpha: float = 1.0, offsets: tuple[int, int] = (0, 0)
 ) -> Image.Image:
@@ -18,7 +18,7 @@ def rasterImageOA(  # pylint:disable=missing-function-docstring
 	return renderWAlphaOffset(image, size, alpha, offsets)
 
 
-@deprecated("use renderWAlphaOffset", version="2021.1")
+@deprecated(deprecated_in="2021.1", removed_in="", details="use renderWAlphaOffset")
 def rasterImageOffset(  # pylint:disable=missing-function-docstring
 	image: Image.Image, size: tuple[int, int], offsets: tuple[int, int] = (0, 0)
 ) -> Image.Image:

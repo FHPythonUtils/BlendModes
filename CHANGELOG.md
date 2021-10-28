@@ -2,6 +2,10 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
+## 2021.3.3 - 2021/10/28
+
+- Fix crash due to deprecation using a different function signature
+
 ## 2021.3.2 - 2021/10/26
 
 - Use pre-commit to enforce reasonable standards + consistency

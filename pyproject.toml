@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "blendmodes"
-version = "2021.3.2"
+version = "2021.3.3"
 license = "mit"
 description = "Use this module to apply a number of blending modes to a background and foreground image"
 authors = ["FredHappyface"]

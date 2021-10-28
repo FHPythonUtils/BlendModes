@@ -422,6 +422,7 @@ version.
 ## Download Project
 
 ### Clone
+
 #### Using The Command Line
 
 1. Press the Clone or download button in the top right
