@@ -115,7 +115,7 @@ foreground = Image.open(THISDIR + "/foreground.png")
 blendLayers(background, foreground, BlendType.NORMAL)
 ```
 
-![Normal](test/normal_expected.png)
+![Normal](test/data/normal_expected.png)
 
 ### Multiply
 
@@ -123,7 +123,7 @@ blendLayers(background, foreground, BlendType.NORMAL)
 blendLayers(background, foreground, BlendType.MULTIPLY)
 ```
 
-![Multiply](test/multiply_expected.png)
+![Multiply](test/data/multiply_expected.png)
 
 ### Additive
 
@@ -131,7 +131,7 @@ blendLayers(background, foreground, BlendType.MULTIPLY)
 blendLayers(background, foreground, BlendType.ADDITIVE)
 ```
 
-![Additive](test/additive_expected.png)
+![Additive](test/data/additive_expected.png)
 
 ### ColourBurn
 
@@ -139,7 +139,7 @@ blendLayers(background, foreground, BlendType.ADDITIVE)
 blendLayers(background, foreground, BlendType.COLOURBURN)
 ```
 
-![ColourBurn](test/colourburn_expected.png)
+![ColourBurn](test/data/colourburn_expected.png)
 
 ### ColourDodge
 
@@ -147,7 +147,7 @@ blendLayers(background, foreground, BlendType.COLOURBURN)
 blendLayers(background, foreground, BlendType.COLOURDODGE)
 ```
 
-![ColourDodge](test/colourdodge_expected.png)
+![ColourDodge](test/data/colourdodge_expected.png)
 
 ### Reflect
 
@@ -155,7 +155,7 @@ blendLayers(background, foreground, BlendType.COLOURDODGE)
 blendLayers(background, foreground, BlendType.REFLECT)
 ```
 
-![Reflect](test/reflect_expected.png)
+![Reflect](test/data/reflect_expected.png)
 
 ### Glow
 
@@ -163,7 +163,7 @@ blendLayers(background, foreground, BlendType.REFLECT)
 blendLayers(background, foreground, BlendType.GLOW)
 ```
 
-![Glow](test/glow_expected.png)
+![Glow](test/data/glow_expected.png)
 
 ### Overlay
 
@@ -171,7 +171,7 @@ blendLayers(background, foreground, BlendType.GLOW)
 blendLayers(background, foreground, BlendType.OVERLAY)
 ```
 
-![Overlay](test/overlay_expected.png)
+![Overlay](test/data/overlay_expected.png)
 
 ### Difference
 
@@ -179,7 +179,7 @@ blendLayers(background, foreground, BlendType.OVERLAY)
 blendLayers(background, foreground, BlendType.DIFFERENCE)
 ```
 
-![Difference](test/difference_expected.png)
+![Difference](test/data/difference_expected.png)
 
 ### Negation
 
@@ -187,7 +187,7 @@ blendLayers(background, foreground, BlendType.DIFFERENCE)
 blendLayers(background, foreground, BlendType.NEGATION)
 ```
 
-![Negation](test/negation_expected.png)
+![Negation](test/data/negation_expected.png)
 
 ### Lighten
 
@@ -195,7 +195,7 @@ blendLayers(background, foreground, BlendType.NEGATION)
 blendLayers(background, foreground, BlendType.LIGHTEN)
 ```
 
-![Lighten](test/lighten_expected.png)
+![Lighten](test/data/lighten_expected.png)
 
 ### Darken
 
@@ -203,7 +203,7 @@ blendLayers(background, foreground, BlendType.LIGHTEN)
 blendLayers(background, foreground, BlendType.DARKEN)
 ```
 
-![Darken](test/darken_expected.png)
+![Darken](test/data/darken_expected.png)
 
 ### Screen
 
@@ -211,7 +211,7 @@ blendLayers(background, foreground, BlendType.DARKEN)
 blendLayers(background, foreground, BlendType.SCREEN)
 ```
 
-![Screen](test/screen_expected.png)
+![Screen](test/data/screen_expected.png)
 
 ### XOR
 
@@ -219,7 +219,7 @@ blendLayers(background, foreground, BlendType.SCREEN)
 blendLayers(background, foreground, BlendType.XOR)
 ```
 
-![XOR](test/xor_expected.png)
+![XOR](test/data/xor_expected.png)
 
 ### SoftLight
 
@@ -227,7 +227,7 @@ blendLayers(background, foreground, BlendType.XOR)
 blendLayers(background, foreground, BlendType.SOFTLIGHT)
 ```
 
-![SoftLight](test/softlight_expected.png)
+![SoftLight](test/data/softlight_expected.png)
 
 ### HardLight
 
@@ -235,7 +235,7 @@ blendLayers(background, foreground, BlendType.SOFTLIGHT)
 blendLayers(background, foreground, BlendType.HARDLIGHT)
 ```
 
-![HardLight](test/hardlight_expected.png)
+![HardLight](test/data/hardlight_expected.png)
 
 ### GrainExtract
 
@@ -243,7 +243,7 @@ blendLayers(background, foreground, BlendType.HARDLIGHT)
 blendLayers(background, foreground, BlendType.GRAINEXTRACT)
 ```
 
-![GrainExtract](test/grainextract_expected.png)
+![GrainExtract](test/data/grainextract_expected.png)
 
 ### GrainMerge
 
@@ -251,7 +251,7 @@ blendLayers(background, foreground, BlendType.GRAINEXTRACT)
 blendLayers(background, foreground, BlendType.GRAINMERGE)
 ```
 
-![GrainMerge](test/grainmerge_expected.png)
+![GrainMerge](test/data/grainmerge_expected.png)
 
 ### Divide
 
@@ -259,7 +259,7 @@ blendLayers(background, foreground, BlendType.GRAINMERGE)
 blendLayers(background, foreground, BlendType.DIVIDE)
 ```
 
-![Divide](test/divide_expected.png)
+![Divide](test/data/divide_expected.png)
 
 ### Hue
 
@@ -267,7 +267,7 @@ blendLayers(background, foreground, BlendType.DIVIDE)
 blendLayers(background, foreground, BlendType.HUE)
 ```
 
-![Hue](test/hue_expected.png)
+![Hue](test/data/hue_expected.png)
 
 ### Saturation
 
@@ -275,7 +275,7 @@ blendLayers(background, foreground, BlendType.HUE)
 blendLayers(background, foreground, BlendType.SATURATION)
 ```
 
-![Saturation](test/saturation_expected.png)
+![Saturation](test/data/saturation_expected.png)
 
 ### Colour
 
@@ -283,7 +283,7 @@ blendLayers(background, foreground, BlendType.SATURATION)
 blendLayers(background, foreground, BlendType.COLOUR)
 ```
 
-![Colour](test/colour_expected.png)
+![Colour](test/data/colour_expected.png)
 
 ### Luminosity
 
@@ -291,7 +291,7 @@ blendLayers(background, foreground, BlendType.COLOUR)
 blendLayers(background, foreground, BlendType.LUMINOSITY)
 ```
 
-![Luminosity](test/luminosity_expected.png)
+![Luminosity](test/data/luminosity_expected.png)
 
 ### PinLight
 
@@ -299,7 +299,7 @@ blendLayers(background, foreground, BlendType.LUMINOSITY)
 blendLayers(background, foreground, BlendType.PINLIGHT)
 ```
 
-![PinLight](test/pinlight_expected.png)
+![PinLight](test/data/pinlight_expected.png)
 
 ### VividLight
 
@@ -307,7 +307,7 @@ blendLayers(background, foreground, BlendType.PINLIGHT)
 blendLayers(background, foreground, BlendType.VIVIDLIGHT)
 ```
 
-![VividLight](test/vividlight_expected.png)
+![VividLight](test/data/vividlight_expected.png)
 
 ### Exclusion
 
@@ -315,7 +315,7 @@ blendLayers(background, foreground, BlendType.VIVIDLIGHT)
 blendLayers(background, foreground, BlendType.EXCLUSION)
 ```
 
-![Exclusion](test/exclusion_expected.png)
+![Exclusion](test/data/exclusion_expected.png)
 
 ### DestIn
 
@@ -323,7 +323,7 @@ blendLayers(background, foreground, BlendType.EXCLUSION)
 blendLayers(background, foreground, BlendType.DESTIN)
 ```
 
-![Exclusion](test/destin_expected.png)
+![Exclusion](test/data/destin_expected.png)
 
 ### DestOut
 
@@ -331,7 +331,7 @@ blendLayers(background, foreground, BlendType.DESTIN)
 blendLayers(background, foreground, BlendType.DESTOUT)
 ```
 
-![Exclusion](test/destout_expected.png)
+![Exclusion](test/data/destout_expected.png)
 
 ### DestAtop
 
@@ -339,7 +339,7 @@ blendLayers(background, foreground, BlendType.DESTOUT)
 blendLayers(background, foreground, BlendType.DESTATOP)
 ```
 
-![Exclusion](test/destatop_expected.png)
+![Exclusion](test/data/destatop_expected.png)
 
 ### SrcAtop
 
@@ -347,7 +347,7 @@ blendLayers(background, foreground, BlendType.DESTATOP)
 blendLayers(background, foreground, BlendType.SRCATOP)
 ```
 
-![Exclusion](test/srcatop_expected.png)
+![Exclusion](test/data/srcatop_expected.png)
 
 ## Documentation
 

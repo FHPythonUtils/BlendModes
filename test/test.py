@@ -18,337 +18,337 @@ from blendmodes.blend import BlendType, blendLayers
 
 def test_normal():
 	"""Test normal."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.NORMAL),
-		THISDIR + "/normal_expected.png",
+		Image.open(f"{THISDIR}/data/normal_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_multiply():
 	"""Test multiply."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.MULTIPLY),
-		THISDIR + "/multiply_expected.png",
+		Image.open(f"{THISDIR}/data/multiply_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_additive():
 	"""Test additive."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.ADDITIVE),
-		THISDIR + "/additive_expected.png",
+		Image.open(f"{THISDIR}/data/additive_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_colourburn():
 	"""Test colourburn."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.COLOURBURN),
-		THISDIR + "/colourburn_expected.png",
+		Image.open(f"{THISDIR}/data/colourburn_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_colourdodge():
 	"""Test colourdodge."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.COLOURDODGE),
-		THISDIR + "/colourdodge_expected.png",
+		Image.open(f"{THISDIR}/data/colourdodge_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_reflect():
 	"""Test reflect."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.REFLECT),
-		THISDIR + "/reflect_expected.png",
+		Image.open(f"{THISDIR}/data/reflect_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_glow():
 	"""Test glow."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.GLOW),
-		THISDIR + "/glow_expected.png",
+		Image.open(f"{THISDIR}/data/glow_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_overlay():
 	"""Test overlay."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.OVERLAY),
-		THISDIR + "/overlay_expected.png",
+		Image.open(f"{THISDIR}/data/overlay_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_difference():
 	"""Test difference."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.DIFFERENCE),
-		THISDIR + "/difference_expected.png",
+		Image.open(f"{THISDIR}/data/difference_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_negation():
 	"""Test negation."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.NEGATION),
-		THISDIR + "/negation_expected.png",
+		Image.open(f"{THISDIR}/data/negation_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_lighten():
 	"""Test lighten."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.LIGHTEN),
-		THISDIR + "/lighten_expected.png",
+		Image.open(f"{THISDIR}/data/lighten_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_darken():
 	"""Test darken."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.DARKEN),
-		THISDIR + "/darken_expected.png",
+		Image.open(f"{THISDIR}/data/darken_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_screen():
 	"""Test screen."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.SCREEN),
-		THISDIR + "/screen_expected.png",
+		Image.open(f"{THISDIR}/data/screen_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_xor():
 	"""Test xor."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.XOR),
-		THISDIR + "/xor_expected.png",
+		Image.open(f"{THISDIR}/data/xor_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_softlight():
 	"""Test softlight."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.SOFTLIGHT),
-		THISDIR + "/softlight_expected.png",
+		Image.open(f"{THISDIR}/data/softlight_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_hardlight():
 	"""Test hardlight."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.HARDLIGHT),
-		THISDIR + "/hardlight_expected.png",
+		Image.open(f"{THISDIR}/data/hardlight_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_grainextract():
 	"""Test grainextract."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.GRAINEXTRACT),
-		THISDIR + "/grainextract_expected.png",
+		Image.open(f"{THISDIR}/data/grainextract_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_grainmerge():
 	"""Test grainmerge."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.GRAINMERGE),
-		THISDIR + "/grainmerge_expected.png",
+		Image.open(f"{THISDIR}/data/grainmerge_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_divide():
 	"""Test divide."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.DIVIDE),
-		THISDIR + "/divide_expected.png",
+		Image.open(f"{THISDIR}/data/divide_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_hue():
 	"""Test hue."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.HUE),
-		THISDIR + "/hue_expected.png",
+		Image.open(f"{THISDIR}/data/hue_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_saturation():
 	"""Test saturation."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.SATURATION),
-		THISDIR + "/saturation_expected.png",
+		Image.open(f"{THISDIR}/data/saturation_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_colour():
 	"""Test colour."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.COLOUR),
-		THISDIR + "/colour_expected.png",
+		Image.open(f"{THISDIR}/data/colour_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_luminosity():
 	"""Test luminosity."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.LUMINOSITY),
-		THISDIR + "/luminosity_expected.png",
+		Image.open(f"{THISDIR}/data/luminosity_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_pinlight():
 	"""Test pinlight."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.PINLIGHT),
-		THISDIR + "/pinlight_expected.png",
+		Image.open(f"{THISDIR}/data/pinlight_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_vividlight():
 	"""Test vividlight."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.VIVIDLIGHT),
-		THISDIR + "/vividlight_expected.png",
+		Image.open(f"{THISDIR}/data/vividlight_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_exclusion():
 	"""Test exclusion."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.EXCLUSION),
-		THISDIR + "/exclusion_expected.png",
+		Image.open(f"{THISDIR}/data/exclusion_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_destin():
 	"""Test destin."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.DESTIN),
-		THISDIR + "/destin_expected.png",
+		Image.open(f"{THISDIR}/data/destin_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_destout():
 	"""Test destout."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.DESTOUT),
-		THISDIR + "/destout_expected.png",
+		Image.open(f"{THISDIR}/data/destout_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_destatop():
 	"""Test destatop."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.DESTATOP),
-		THISDIR + "/destatop_expected.png",
+		Image.open(f"{THISDIR}/data/destatop_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_srcatop():
 	"""Test srcatop."""
-	background = Image.open(THISDIR + "/background.png")
-	foreground = Image.open(THISDIR + "/foreground.png")
+	background = Image.open(f"{THISDIR}/data/background.png")
+	foreground = Image.open(f"{THISDIR}/data/foreground.png")
 	assert imgcompare.is_equal(
 		blendLayers(background, foreground, BlendType.SRCATOP),
-		THISDIR + "/srcatop_expected.png",
+		Image.open(f"{THISDIR}/data/srcatop_expected.png").convert("RGBA"),
 		tolerance=1,
 	)
 
 
 def test_non_rgba():
-	background = Image.open(THISDIR + "/background.jpg")
-	foreground = Image.open(THISDIR + "/foreground.jpg")
+	background = Image.open(f"{THISDIR}/data/background.jpg")
+	foreground = Image.open(f"{THISDIR}/data/foreground.jpg")
 	blendLayers(background, foreground, BlendType.NORMAL)
 
 
