@@ -1,10 +1,10 @@
-# blend
+# Blend
 
-> Auto-generated documentation for [blendmodes.blend](../../blendmodes/blend.py) module.
+> Auto-generated documentation for [blendmodes.blend](../../../blendmodes/blend.py) module.
 
 Provide blending functions and types.
 
-- [Blendmodes](../README.md#blendmodes-index) / [Modules](../README.md#blendmodes-modules) / [blendmodes](index.md#blendmodes) / blend
+- [Blendmodes](../README.md#blendmodes-index) / [Modules](../MODULES.md#blendmodes-modules) / [Blendmodes](index.md#blendmodes) / Blend
     - [additive](#additive)
     - [blend](#blend)
     - [blendLayers](#blendlayers)
@@ -58,7 +58,7 @@ editors
 
 ## additive
 
-[[find in source code]](../../blendmodes/blend.py#L41)
+[[find in source code]](../../../blendmodes/blend.py#L41)
 
 ```python
 def additive(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -68,7 +68,7 @@ BlendType.ADDITIVE.
 
 ## blend
 
-[[find in source code]](../../blendmodes/blend.py#L384)
+[[find in source code]](../../../blendmodes/blend.py#L384)
 
 ```python
 def blend(
@@ -113,7 +113,7 @@ Blend pixels.
 
 ## blendLayers
 
-[[find in source code]](../../blendmodes/blend.py#L448)
+[[find in source code]](../../../blendmodes/blend.py#L448)
 
 ```python
 def blendLayers(
@@ -139,7 +139,7 @@ Blend layers using numpy array.
 
 ## colour
 
-[[find in source code]](../../blendmodes/blend.py#L260)
+[[find in source code]](../../../blendmodes/blend.py#L260)
 
 ```python
 def colour(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -149,7 +149,7 @@ BlendType.COLOUR.
 
 ## colourburn
 
-[[find in source code]](../../blendmodes/blend.py#L46)
+[[find in source code]](../../../blendmodes/blend.py#L46)
 
 ```python
 def colourburn(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -159,7 +159,7 @@ BlendType.COLOURBURN.
 
 ## colourdodge
 
-[[find in source code]](../../blendmodes/blend.py#L54)
+[[find in source code]](../../../blendmodes/blend.py#L54)
 
 ```python
 def colourdodge(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -169,7 +169,7 @@ BlendType.COLOURDODGE.
 
 ## darken
 
-[[find in source code]](../../blendmodes/blend.py#L100)
+[[find in source code]](../../../blendmodes/blend.py#L100)
 
 ```python
 def darken(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -179,7 +179,7 @@ BlendType.DARKEN.
 
 ## destatop
 
-[[find in source code]](../../blendmodes/blend.py#L321)
+[[find in source code]](../../../blendmodes/blend.py#L321)
 
 ```python
 def destatop(
@@ -196,7 +196,7 @@ where 'layer below' does not exist, but 'layer above' does, place 'layer-above'
 
 ## destin
 
-[[find in source code]](../../blendmodes/blend.py#L270)
+[[find in source code]](../../../blendmodes/blend.py#L270)
 
 ```python
 def destin(
@@ -221,7 +221,7 @@ co = αb x Cb x αs
 
 ## destout
 
-[[find in source code]](../../blendmodes/blend.py#L298)
+[[find in source code]](../../../blendmodes/blend.py#L298)
 
 ```python
 def destout(
@@ -240,7 +240,7 @@ also alpha in 'layer below'
 
 ## difference
 
-[[find in source code]](../../blendmodes/blend.py#L85)
+[[find in source code]](../../../blendmodes/blend.py#L85)
 
 ```python
 def difference(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -250,7 +250,7 @@ BlendType.DIFFERENCE.
 
 ## divide
 
-[[find in source code]](../../blendmodes/blend.py#L144)
+[[find in source code]](../../../blendmodes/blend.py#L144)
 
 ```python
 def divide(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -260,7 +260,7 @@ BlendType.DIVIDE.
 
 ## exclusion
 
-[[find in source code]](../../blendmodes/blend.py#L163)
+[[find in source code]](../../../blendmodes/blend.py#L163)
 
 ```python
 def exclusion(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -270,7 +270,7 @@ BlendType.EXCLUSION.
 
 ## glow
 
-[[find in source code]](../../blendmodes/blend.py#L68)
+[[find in source code]](../../../blendmodes/blend.py#L68)
 
 ```python
 def glow(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -280,7 +280,7 @@ BlendType.GLOW.
 
 ## grainextract
 
-[[find in source code]](../../blendmodes/blend.py#L134)
+[[find in source code]](../../../blendmodes/blend.py#L134)
 
 ```python
 def grainextract(
@@ -293,7 +293,7 @@ BlendType.GRAINEXTRACT.
 
 ## grainmerge
 
-[[find in source code]](../../blendmodes/blend.py#L139)
+[[find in source code]](../../../blendmodes/blend.py#L139)
 
 ```python
 def grainmerge(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -303,7 +303,7 @@ BlendType.GRAINMERGE.
 
 ## hardlight
 
-[[find in source code]](../../blendmodes/blend.py#L125)
+[[find in source code]](../../../blendmodes/blend.py#L125)
 
 ```python
 def hardlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -313,7 +313,7 @@ BlendType.HARDLIGHT.
 
 ## hue
 
-[[find in source code]](../../blendmodes/blend.py#L250)
+[[find in source code]](../../../blendmodes/blend.py#L250)
 
 ```python
 def hue(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -323,7 +323,7 @@ BlendType.HUE.
 
 ## imageFloatToInt
 
-[[find in source code]](../../blendmodes/blend.py#L372)
+[[find in source code]](../../../blendmodes/blend.py#L372)
 
 ```python
 def imageFloatToInt(image: np.ndarray) -> np.ndarray:
@@ -341,7 +341,7 @@ Convert a numpy array representing an image to an array of ints.
 
 ## imageIntToFloat
 
-[[find in source code]](../../blendmodes/blend.py#L360)
+[[find in source code]](../../../blendmodes/blend.py#L360)
 
 ```python
 def imageIntToFloat(image: np.ndarray) -> np.ndarray:
@@ -359,7 +359,7 @@ Convert a numpy array representing an image to an array of floats.
 
 ## lighten
 
-[[find in source code]](../../blendmodes/blend.py#L95)
+[[find in source code]](../../../blendmodes/blend.py#L95)
 
 ```python
 def lighten(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -369,7 +369,7 @@ BlendType.LIGHTEN.
 
 ## luminosity
 
-[[find in source code]](../../blendmodes/blend.py#L265)
+[[find in source code]](../../../blendmodes/blend.py#L265)
 
 ```python
 def luminosity(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -379,7 +379,7 @@ BlendType.LUMINOSITY.
 
 ## multiply
 
-[[find in source code]](../../blendmodes/blend.py#L36)
+[[find in source code]](../../../blendmodes/blend.py#L36)
 
 ```python
 def multiply(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -389,7 +389,7 @@ BlendType.MULTIPLY.
 
 ## negation
 
-[[find in source code]](../../blendmodes/blend.py#L90)
+[[find in source code]](../../../blendmodes/blend.py#L90)
 
 ```python
 def negation(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -399,7 +399,7 @@ BlendType.NEGATION.
 
 ## normal
 
-[[find in source code]](../../blendmodes/blend.py#L30)
+[[find in source code]](../../../blendmodes/blend.py#L30)
 
 ```python
 def normal(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -409,7 +409,7 @@ BlendType.NORMAL.
 
 ## overlay
 
-[[find in source code]](../../blendmodes/blend.py#L76)
+[[find in source code]](../../../blendmodes/blend.py#L76)
 
 ```python
 def overlay(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -419,7 +419,7 @@ BlendType.OVERLAY.
 
 ## pinlight
 
-[[find in source code]](../../blendmodes/blend.py#L149)
+[[find in source code]](../../../blendmodes/blend.py#L149)
 
 ```python
 def pinlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -429,7 +429,7 @@ BlendType.PINLIGHT.
 
 ## reflect
 
-[[find in source code]](../../blendmodes/blend.py#L60)
+[[find in source code]](../../../blendmodes/blend.py#L60)
 
 ```python
 def reflect(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -439,7 +439,7 @@ BlendType.REFLECT.
 
 ## saturation
 
-[[find in source code]](../../blendmodes/blend.py#L255)
+[[find in source code]](../../../blendmodes/blend.py#L255)
 
 ```python
 def saturation(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -449,7 +449,7 @@ BlendType.SATURATION.
 
 ## screen
 
-[[find in source code]](../../blendmodes/blend.py#L105)
+[[find in source code]](../../../blendmodes/blend.py#L105)
 
 ```python
 def screen(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -459,7 +459,7 @@ BlendType.SCREEN.
 
 ## softlight
 
-[[find in source code]](../../blendmodes/blend.py#L118)
+[[find in source code]](../../../blendmodes/blend.py#L118)
 
 ```python
 def softlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -469,7 +469,7 @@ BlendType.SOFTLIGHT.
 
 ## srcatop
 
-[[find in source code]](../../blendmodes/blend.py#L342)
+[[find in source code]](../../../blendmodes/blend.py#L342)
 
 ```python
 def srcatop(
@@ -484,7 +484,7 @@ Place the layer below above the 'layer above' in places where the 'layer above' 
 
 ## vividlight
 
-[[find in source code]](../../blendmodes/blend.py#L156)
+[[find in source code]](../../../blendmodes/blend.py#L156)
 
 ```python
 def vividlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -494,7 +494,7 @@ BlendType.VIVIDLIGHT.
 
 ## xor
 
-[[find in source code]](../../blendmodes/blend.py#L110)
+[[find in source code]](../../../blendmodes/blend.py#L110)
 
 ```python
 def xor(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:

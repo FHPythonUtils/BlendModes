@@ -1,17 +1,17 @@
-# imagetools
+# Imagetools
 
-> Auto-generated documentation for [blendmodes.imagetools](../../blendmodes/imagetools.py) module.
+> Auto-generated documentation for [blendmodes.imagetools](../../../blendmodes/imagetools.py) module.
 
 Do stuff to images to prepare them.
 
-- [Blendmodes](../README.md#blendmodes-index) / [Modules](../README.md#blendmodes-modules) / [blendmodes](index.md#blendmodes) / imagetools
+- [Blendmodes](../README.md#blendmodes-index) / [Modules](../MODULES.md#blendmodes-modules) / [Blendmodes](index.md#blendmodes) / Imagetools
     - [rasterImageOA](#rasterimageoa)
     - [rasterImageOffset](#rasterimageoffset)
     - [renderWAlphaOffset](#renderwalphaoffset)
 
 ## rasterImageOA
 
-[[find in source code]](../../blendmodes/imagetools.py#L11)
+[[find in source code]](../../../blendmodes/imagetools.py#L11)
 
 ```python
 @deprecated(
@@ -29,7 +29,7 @@ def rasterImageOA(
 
 ## rasterImageOffset
 
-[[find in source code]](../../blendmodes/imagetools.py#L21)
+[[find in source code]](../../../blendmodes/imagetools.py#L21)
 
 ```python
 @deprecated(
@@ -46,7 +46,7 @@ def rasterImageOffset(
 
 ## renderWAlphaOffset
 
-[[find in source code]](../../blendmodes/imagetools.py#L31)
+[[find in source code]](../../../blendmodes/imagetools.py#L31)
 
 ```python
 def renderWAlphaOffset(

@@ -1,15 +1,15 @@
-# blendtype
+# BlendType
 
-> Auto-generated documentation for [blendmodes.blendtype](../../blendmodes/blendtype.py) module.
+> Auto-generated documentation for [blendmodes.blendtype](../../../blendmodes/blendtype.py) module.
 
 Specify supported blend types.
 
-- [Blendmodes](../README.md#blendmodes-index) / [Modules](../README.md#blendmodes-modules) / [blendmodes](index.md#blendmodes) / blendtype
+- [Blendmodes](../README.md#blendmodes-index) / [Modules](../MODULES.md#blendmodes-modules) / [Blendmodes](index.md#blendmodes) / BlendType
     - [BlendType](#blendtype)
 
 ## BlendType
 
-[[find in source code]](../../blendmodes/blendtype.py#L8)
+[[find in source code]](../../../blendmodes/blendtype.py#L8)
 
 ```python
 class BlendType(str, MultiValueEnum):
