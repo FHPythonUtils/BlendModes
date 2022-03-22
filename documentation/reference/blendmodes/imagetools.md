@@ -21,9 +21,9 @@ Do stuff to images to prepare them.
 )
 def rasterImageOA(
     image: Image.Image,
-    size: tuple[(int, int)],
+    size: tuple[int, int],
     alpha: float = 1.0,
-    offsets: tuple[(int, int)] = (0, 0),
+    offsets: tuple[int, int] = (0, 0),
 ) -> Image.Image:
 ```
 
@@ -39,8 +39,8 @@ def rasterImageOA(
 )
 def rasterImageOffset(
     image: Image.Image,
-    size: tuple[(int, int)],
-    offsets: tuple[(int, int)] = (0, 0),
+    size: tuple[int, int],
+    offsets: tuple[int, int] = (0, 0),
 ) -> Image.Image:
 ```
 
@@ -51,9 +51,9 @@ def rasterImageOffset(
 ```python
 def renderWAlphaOffset(
     image: Image.Image,
-    size: tuple[(int, int)],
+    size: tuple[int, int],
     alpha: float = 1.0,
-    offsets: tuple[(int, int)] = (0, 0),
+    offsets: tuple[int, int] = (0, 0),
 ) -> Image.Image:
 ```
 

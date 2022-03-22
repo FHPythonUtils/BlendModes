@@ -119,7 +119,7 @@ Blend pixels.
 def blendLayers(
     background: Image.Image,
     foreground: Image.Image,
-    blendType: BlendType | tuple[(str, ...)],
+    blendType: BlendType | tuple[str, ...],
     opacity: float = 1.0,
 ) -> Image.Image:
 ```
