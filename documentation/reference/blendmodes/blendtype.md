@@ -1,19 +1,17 @@
 # BlendType
 
+[Blendmodes Index](../README.md#blendmodes-index) /
+[Blendmodes](./index.md#blendmodes) /
+BlendType
+
 > Auto-generated documentation for [blendmodes.blendtype](../../../blendmodes/blendtype.py) module.
 
-Specify supported blend types.
-
-- [Blendmodes](../README.md#blendmodes-index) / [Modules](../MODULES.md#blendmodes-modules) / [Blendmodes](index.md#blendmodes) / BlendType
-    - [BlendType](#blendtype)
+- [BlendType](#blendtype)
+  - [BlendType](#blendtype-1)
 
 ## BlendType
 
-[[find in source code]](../../../blendmodes/blendtype.py#L8)
-
-```python
-class BlendType(str, MultiValueEnum):
-```
+[Show source in blendtype.py:8](../../../blendmodes/blendtype.py#L8)
 
 Specify supported blend types.
 
@@ -47,3 +45,12 @@ DESTIN = "bm:destin", "destin"
 DESTOUT = "bm:destout", "destout"
 SRCATOP = "bm:srcatop", "srcatop"
 DESTATOP = "bm:destatop", "destatop"
+
+#### Signature
+
+```python
+class BlendType(str, MultiValueEnum):
+    ...
+```
+
+

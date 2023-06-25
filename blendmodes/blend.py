@@ -61,7 +61,7 @@ def reflect(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
 	"""BlendType.REFLECT."""
 	with np.errstate(divide="ignore"):
 		return np.where(
-			foreground != 1.0, np.minimum((background ** 2) / (1.0 - foreground), 1.0), 1.0
+			foreground != 1.0, np.minimum((background**2) / (1.0 - foreground), 1.0), 1.0
 		)
 
 
@@ -69,7 +69,7 @@ def glow(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
 	"""BlendType.GLOW."""
 	with np.errstate(divide="ignore"):
 		return np.where(
-			background != 1.0, np.minimum((foreground ** 2) / (1.0 - background), 1.0), 1.0
+			background != 1.0, np.minimum((foreground**2) / (1.0 - background), 1.0), 1.0
 		)
 
 

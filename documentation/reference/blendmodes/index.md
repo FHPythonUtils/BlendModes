@@ -1,11 +1,15 @@
 # Blendmodes
 
+[Blendmodes Index](../README.md#blendmodes-index) /
+Blendmodes
+
 > Auto-generated documentation for [blendmodes](../../../blendmodes/__init__.py) module.
 
-Use this module to apply a number of blending modes to a background and foreground image
+- [Blendmodes](#blendmodes)
+  - [Modules](#modules)
 
-- [Blendmodes](../README.md#blendmodes-index) / [Modules](../MODULES.md#blendmodes-modules) / Blendmodes
-    - Modules
-        - [Blend](blend.md#blend)
-        - [BlendType](blendtype.md#blendtype)
-        - [Imagetools](imagetools.md#imagetools)
+## Modules
+
+- [Blend](./blend.md)
+- [BlendType](./blendtype.md)
+- [Imagetools](./imagetools.md)

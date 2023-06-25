@@ -1,10 +1,9 @@
-# Blendmodes Modules
+# Blendmodes Index
 
-> Auto-generated documentation modules index.
+> Auto-generated documentation index.
 
-Full list of [Blendmodes](README.md#blendmodes-index) project modules.
+A full list of `Blendmodes` project modules.
 
-- [Blendmodes Index](README.md#blendmodes-index)
 - [Blendmodes](blendmodes/index.md#blendmodes)
     - [Blend](blendmodes/blend.md#blend)
     - [BlendType](blendmodes/blendtype.md#blendtype)

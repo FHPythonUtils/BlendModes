@@ -1,61 +1,54 @@
 # Imagetools
 
+[Blendmodes Index](../README.md#blendmodes-index) /
+[Blendmodes](./index.md#blendmodes) /
+Imagetools
+
 > Auto-generated documentation for [blendmodes.imagetools](../../../blendmodes/imagetools.py) module.
 
-Do stuff to images to prepare them.
-
-- [Blendmodes](../README.md#blendmodes-index) / [Modules](../MODULES.md#blendmodes-modules) / [Blendmodes](index.md#blendmodes) / Imagetools
-    - [rasterImageOA](#rasterimageoa)
-    - [rasterImageOffset](#rasterimageoffset)
-    - [renderWAlphaOffset](#renderwalphaoffset)
+- [Imagetools](#imagetools)
+  - [rasterImageOA](#rasterimageoa)
+  - [rasterImageOffset](#rasterimageoffset)
+  - [renderWAlphaOffset](#renderwalphaoffset)
 
 ## rasterImageOA
 
-[[find in source code]](../../../blendmodes/imagetools.py#L11)
+[Show source in imagetools.py:11](../../../blendmodes/imagetools.py#L11)
+
+#### Signature
 
 ```python
-@deprecated(
-    deprecated_in='2021.1',
-    removed_in='',
-    details='use renderWAlphaOffset',
-)
+@deprecated(deprecated_in="2021.1", removed_in="", details="use renderWAlphaOffset")
 def rasterImageOA(
     image: Image.Image,
     size: tuple[int, int],
     alpha: float = 1.0,
     offsets: tuple[int, int] = (0, 0),
 ) -> Image.Image:
+    ...
 ```
+
+
 
 ## rasterImageOffset
 
-[[find in source code]](../../../blendmodes/imagetools.py#L21)
+[Show source in imagetools.py:21](../../../blendmodes/imagetools.py#L21)
+
+#### Signature
 
 ```python
-@deprecated(
-    deprecated_in='2021.1',
-    removed_in='',
-    details='use renderWAlphaOffset',
-)
+@deprecated(deprecated_in="2021.1", removed_in="", details="use renderWAlphaOffset")
 def rasterImageOffset(
-    image: Image.Image,
-    size: tuple[int, int],
-    offsets: tuple[int, int] = (0, 0),
+    image: Image.Image, size: tuple[int, int], offsets: tuple[int, int] = (0, 0)
 ) -> Image.Image:
+    ...
 ```
+
+
 
 ## renderWAlphaOffset
 
-[[find in source code]](../../../blendmodes/imagetools.py#L31)
-
-```python
-def renderWAlphaOffset(
-    image: Image.Image,
-    size: tuple[int, int],
-    alpha: float = 1.0,
-    offsets: tuple[int, int] = (0, 0),
-) -> Image.Image:
-```
+[Show source in imagetools.py:31](../../../blendmodes/imagetools.py#L31)
 
 Render an image with offset and alpha to a given size.
 
@@ -70,3 +63,17 @@ Defaults to (0, 0).
 #### Returns
 
 - `Image.Image` - new image
+
+#### Signature
+
+```python
+def renderWAlphaOffset(
+    image: Image.Image,
+    size: tuple[int, int],
+    alpha: float = 1.0,
+    offsets: tuple[int, int] = (0, 0),
+) -> Image.Image:
+    ...
+```
+
+
