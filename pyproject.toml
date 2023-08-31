@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "blendmodes"
-version = "2022"
+version = "2023"
 license = "mit"
 description = "Use this module to apply a number of blending modes to a background and foreground image"
 authors = ["FredHappyface"]
@@ -22,17 +22,18 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.8,<4.0"
-Pillow = "<10,>=9.0.0"
+Pillow = "<11,>=10.0.0"
 numpy = "<2,>=1.22.1"
-aenum = "<4,>=3.1.7"
+aenum = "<4,>=3.1.15"
 deprecation = "<3,>=2.1.0"
 
-[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
 imgcompare = "^2.0.1"
-pytest = "^7.1.1"
-pylint = "^2.13.5"
-handsdown = "^1.1.0"
-coverage = "^6.3.2"
+pytest = "^7.4.0"
+pylint = "^2.17.5"
+handsdown = "^2.0.1"
+coverage = "^7.3.0"
 
 [tool.black]
 line-length = 100

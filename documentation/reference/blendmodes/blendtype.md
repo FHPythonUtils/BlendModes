@@ -52,5 +52,3 @@ DESTATOP = "bm:destatop", "destatop"
 class BlendType(str, MultiValueEnum):
     ...
 ```
-
-

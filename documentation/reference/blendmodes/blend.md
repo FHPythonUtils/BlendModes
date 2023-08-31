@@ -650,5 +650,3 @@ BlendType.XOR.
 def xor(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
     ...
 ```
-
-

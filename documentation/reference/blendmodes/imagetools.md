@@ -75,5 +75,3 @@ def renderWAlphaOffset(
 ) -> Image.Image:
     ...
 ```
-
-
