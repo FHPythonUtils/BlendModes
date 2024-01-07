@@ -51,15 +51,14 @@ BlendType.ADDITIVE.
 #### Signature
 
 ```python
-def additive(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def additive(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
 
 ## blend
 
-[Show source in blend.py:384](../../../blendmodes/blend.py#L384)
+[Show source in blend.py:387](../../../blendmodes/blend.py#L387)
 
 Blend pixels.
 
@@ -99,15 +98,14 @@ Blend pixels.
 ```python
 def blend(
     background: np.ndarray, foreground: np.ndarray, blendType: BlendType
-) -> np.ndarray:
-    ...
+) -> np.ndarray: ...
 ```
 
 
 
 ## blendLayers
 
-[Show source in blend.py:448](../../../blendmodes/blend.py#L448)
+[Show source in blend.py:451](../../../blendmodes/blend.py#L451)
 
 Blend layers using numpy array.
 
@@ -130,8 +128,7 @@ def blendLayers(
     foreground: Image.Image,
     blendType: BlendType | tuple[str, ...],
     opacity: float = 1.0,
-) -> Image.Image:
-    ...
+) -> Image.Image: ...
 ```
 
 
@@ -145,8 +142,7 @@ BlendType.COLOUR.
 #### Signature
 
 ```python
-def colour(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def colour(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -160,8 +156,7 @@ BlendType.COLOURBURN.
 #### Signature
 
 ```python
-def colourburn(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def colourburn(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -175,8 +170,7 @@ BlendType.COLOURDODGE.
 #### Signature
 
 ```python
-def colourdodge(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def colourdodge(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -190,8 +184,7 @@ BlendType.DARKEN.
 #### Signature
 
 ```python
-def darken(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def darken(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -212,8 +205,7 @@ def destatop(
     foregroundAlpha: np.ndarray,
     backgroundColour: np.ndarray,
     foregroundColour: np.ndarray,
-):
-    ...
+): ...
 ```
 
 
@@ -242,8 +234,7 @@ def destin(
     foregroundAlpha: np.ndarray,
     backgroundColour: np.ndarray,
     foregroundColour: np.ndarray,
-):
-    ...
+): ...
 ```
 
 
@@ -266,8 +257,7 @@ def destout(
     foregroundAlpha: np.ndarray,
     backgroundColour: np.ndarray,
     foregroundColour: np.ndarray,
-):
-    ...
+): ...
 ```
 
 
@@ -281,8 +271,7 @@ BlendType.DIFFERENCE.
 #### Signature
 
 ```python
-def difference(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def difference(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -296,8 +285,7 @@ BlendType.DIVIDE.
 #### Signature
 
 ```python
-def divide(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def divide(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -311,8 +299,7 @@ BlendType.EXCLUSION.
 #### Signature
 
 ```python
-def exclusion(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def exclusion(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -326,8 +313,7 @@ BlendType.GLOW.
 #### Signature
 
 ```python
-def glow(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def glow(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -341,8 +327,7 @@ BlendType.GRAINEXTRACT.
 #### Signature
 
 ```python
-def grainextract(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def grainextract(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -356,8 +341,7 @@ BlendType.GRAINMERGE.
 #### Signature
 
 ```python
-def grainmerge(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def grainmerge(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -371,8 +355,7 @@ BlendType.HARDLIGHT.
 #### Signature
 
 ```python
-def hardlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def hardlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -386,8 +369,7 @@ BlendType.HUE.
 #### Signature
 
 ```python
-def hue(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def hue(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -409,8 +391,7 @@ Convert a numpy array representing an image to an array of ints.
 #### Signature
 
 ```python
-def imageFloatToInt(image: np.ndarray) -> np.ndarray:
-    ...
+def imageFloatToInt(image: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -432,8 +413,7 @@ Convert a numpy array representing an image to an array of floats.
 #### Signature
 
 ```python
-def imageIntToFloat(image: np.ndarray) -> np.ndarray:
-    ...
+def imageIntToFloat(image: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -447,8 +427,7 @@ BlendType.LIGHTEN.
 #### Signature
 
 ```python
-def lighten(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def lighten(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -462,8 +441,7 @@ BlendType.LUMINOSITY.
 #### Signature
 
 ```python
-def luminosity(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def luminosity(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -477,8 +455,7 @@ BlendType.MULTIPLY.
 #### Signature
 
 ```python
-def multiply(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def multiply(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -492,8 +469,7 @@ BlendType.NEGATION.
 #### Signature
 
 ```python
-def negation(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def negation(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -507,8 +483,7 @@ BlendType.NORMAL.
 #### Signature
 
 ```python
-def normal(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def normal(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -522,8 +497,7 @@ BlendType.OVERLAY.
 #### Signature
 
 ```python
-def overlay(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def overlay(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -537,8 +511,7 @@ BlendType.PINLIGHT.
 #### Signature
 
 ```python
-def pinlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def pinlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -552,8 +525,7 @@ BlendType.REFLECT.
 #### Signature
 
 ```python
-def reflect(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def reflect(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -567,8 +539,7 @@ BlendType.SATURATION.
 #### Signature
 
 ```python
-def saturation(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def saturation(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -582,8 +553,7 @@ BlendType.SCREEN.
 #### Signature
 
 ```python
-def screen(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def screen(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -597,8 +567,7 @@ BlendType.SOFTLIGHT.
 #### Signature
 
 ```python
-def softlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def softlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -617,8 +586,7 @@ def srcatop(
     foregroundAlpha: np.ndarray,
     backgroundColour: np.ndarray,
     foregroundColour: np.ndarray,
-):
-    ...
+): ...
 ```
 
 
@@ -632,8 +600,7 @@ BlendType.VIVIDLIGHT.
 #### Signature
 
 ```python
-def vividlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def vividlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```
 
 
@@ -647,6 +614,5 @@ BlendType.XOR.
 #### Signature
 
 ```python
-def xor(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
-    ...
+def xor(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 ```

@@ -24,8 +24,7 @@ def rasterImageOA(
     size: tuple[int, int],
     alpha: float = 1.0,
     offsets: tuple[int, int] = (0, 0),
-) -> Image.Image:
-    ...
+) -> Image.Image: ...
 ```
 
 
@@ -40,8 +39,7 @@ def rasterImageOA(
 @deprecated(deprecated_in="2021.1", removed_in="", details="use renderWAlphaOffset")
 def rasterImageOffset(
     image: Image.Image, size: tuple[int, int], offsets: tuple[int, int] = (0, 0)
-) -> Image.Image:
-    ...
+) -> Image.Image: ...
 ```
 
 
@@ -72,6 +70,5 @@ def renderWAlphaOffset(
     size: tuple[int, int],
     alpha: float = 1.0,
     offsets: tuple[int, int] = (0, 0),
-) -> Image.Image:
-    ...
+) -> Image.Image: ...
 ```

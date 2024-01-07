@@ -49,6 +49,5 @@ DESTATOP = "bm:destatop", "destatop"
 #### Signature
 
 ```python
-class BlendType(str, MultiValueEnum):
-    ...
+class BlendType(str, MultiValueEnum): ...
 ```

@@ -378,7 +378,10 @@ def imageFloatToInt(image: np.ndarray) -> np.ndarray:
 	Returns:
 		np.ndarray: numpy array of ints
 	"""
-	return (image * 255).astype(np.uint8)
+	clippedIm = np.clip((image * 255).round(), 0, 255)
+	with warnings.catch_warnings():
+		warnings.filterwarnings("ignore", category=RuntimeWarning)
+		return clippedIm.astype(np.uint8)
 
 
 def blend(background: np.ndarray, foreground: np.ndarray, blendType: BlendType) -> np.ndarray:
