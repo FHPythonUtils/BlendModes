@@ -281,9 +281,9 @@ def destin(
 
 	Destination which overlaps the source, replaces the source.
 
-	Fa = 0; Fb = αs
-	co = αb x Cb x αs
-	αo = αb x αs
+	Fa = 0; Fb = as
+	co = ab x Cb x as
+	ao = ab x as
 	"""
 	del foregroundColour  # Not used by function
 	outAlpha = backgroundAlpha * foregroundAlpha
@@ -361,9 +361,11 @@ def imageIntToFloat(image: np.ndarray) -> np.ndarray:
 	"""Convert a numpy array representing an image to an array of floats.
 
 	Args:
+	----
 		image (np.ndarray): numpy array of ints
 
 	Returns:
+	-------
 		np.ndarray: numpy array of floats
 	"""
 	return image / 255
@@ -373,9 +375,11 @@ def imageFloatToInt(image: np.ndarray) -> np.ndarray:
 	"""Convert a numpy array representing an image to an array of ints.
 
 	Args:
+	----
 		image (np.ndarray): numpy array of floats
 
 	Returns:
+	-------
 		np.ndarray: numpy array of ints
 	"""
 	clippedIm = np.clip((image * 255).round(), 0, 255)
@@ -388,11 +392,13 @@ def blend(background: np.ndarray, foreground: np.ndarray, blendType: BlendType) 
 	"""Blend pixels.
 
 	Args:
+	----
 		background (np.ndarray): background
 		foreground (np.ndarray): foreground
 		blendType (BlendType): the blend type
 
 	Returns:
+	-------
 		np.ndarray: new array representing the image
 
 	background: np.ndarray,
@@ -457,12 +463,14 @@ def blendLayers(
 	"""Blend layers using numpy array.
 
 	Args:
+	----
 		background (Image.Image): background layer
 		foreground (Image.Image): foreground layer (must be same size as background)
 		blendType (BlendType): The blendtype
 		opacity (float): The opacity of the foreground image
 
 	Returns:
+	-------
 		Image.Image: combined image
 	"""
 	# Convert the Image.Image to a numpy array

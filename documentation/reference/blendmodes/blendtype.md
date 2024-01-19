@@ -1,8 +1,6 @@
 # BlendType
 
-[Blendmodes Index](../README.md#blendmodes-index) /
-[Blendmodes](./index.md#blendmodes) /
-BlendType
+[Blendmodes Index](../README.md#blendmodes-index) / [Blendmodes](./index.md#blendmodes) / BlendType
 
 > Auto-generated documentation for [blendmodes.blendtype](../../../blendmodes/blendtype.py) module.
 

@@ -1,12 +1,14 @@
 # Blend
 
-[Blendmodes Index](../README.md#blendmodes-index) /
-[Blendmodes](./index.md#blendmodes) /
-Blend
+[Blendmodes Index](../README.md#blendmodes-index) / [Blendmodes](./index.md#blendmodes) / Blend
 
 > Auto-generated documentation for [blendmodes.blend](../../../blendmodes/blend.py) module.
 
 - [Blend](#blend)
+  - [_lum](#_lum)
+  - [_sat](#_sat)
+  - [_setLum](#_setlum)
+  - [_setSat](#_setsat)
   - [additive](#additive)
   - [blend](#blend)
   - [blendLayers](#blendlayers)
@@ -42,6 +44,92 @@ Blend
   - [vividlight](#vividlight)
   - [xor](#xor)
 
+## _lum
+
+[Show source in blend.py:168](../../../blendmodes/blend.py#L168)
+
+Luminosity.
+
+#### Arguments
+
+- `colours` - x by x by 3 matrix of rgb color components of pixels
+
+#### Returns
+
+x by x by 3 matrix of luminosity of pixels
+
+#### Signature
+
+```python
+def _lum(colours: np.ndarray) -> np.ndarray: ...
+```
+
+
+
+## _sat
+
+[Show source in blend.py:205](../../../blendmodes/blend.py#L205)
+
+Saturation.
+
+#### Arguments
+
+- `colours` - x by x by 3 matrix of rgb color components of pixels
+
+#### Returns
+
+int of saturation of pixels
+
+#### Signature
+
+```python
+def _sat(colours: np.ndarray) -> np.ndarray: ...
+```
+
+
+
+## _setLum
+
+[Show source in blend.py:177](../../../blendmodes/blend.py#L177)
+
+Set a new luminosity value for the matrix of color.
+
+#### Signature
+
+```python
+def _setLum(originalColours: np.ndarray, newLuminosity: np.ndarray) -> np.ndarray: ...
+```
+
+
+
+## _setSat
+
+[Show source in blend.py:214](../../../blendmodes/blend.py#L214)
+
+Set a new saturation value for the matrix of color.
+
+The current implementation cannot be vectorized in an efficient manner,
+so it is very slow,
+O(m*n) at least. This might be able to be improved with openCL if that is
+the direction that the lib takes.
+
+#### Arguments
+
+- `c` - x by x by 3 matrix of rgb color components of pixels
+- `s` - int of the new saturation value for the matrix
+
+#### Returns
+
+x by x by 3 matrix of luminosity of pixels
+
+#### Signature
+
+```python
+def _setSat(originalColours: np.ndarray, newSaturation: np.ndarray) -> np.ndarray: ...
+```
+
+
+
 ## additive
 
 [Show source in blend.py:41](../../../blendmodes/blend.py#L41)
@@ -58,19 +146,21 @@ def additive(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## blend
 
-[Show source in blend.py:387](../../../blendmodes/blend.py#L387)
+[Show source in blend.py:391](../../../blendmodes/blend.py#L391)
 
 Blend pixels.
 
 #### Arguments
 
-- `background` *np.ndarray* - background
-- `foreground` *np.ndarray* - foreground
-- `blendType` *BlendType* - the blend type
+----
+ - `background` *np.ndarray* - background
+ - `foreground` *np.ndarray* - foreground
+ - `blendType` *BlendType* - the blend type
 
 #### Returns
 
-- `np.ndarray` - new array representing the image
+-------
+ - `np.ndarray` - new array representing the image
 
 - `background` - np.ndarray,
 - `foreground` - np.ndarray and the return are in the form
@@ -105,20 +195,22 @@ def blend(
 
 ## blendLayers
 
-[Show source in blend.py:451](../../../blendmodes/blend.py#L451)
+[Show source in blend.py:457](../../../blendmodes/blend.py#L457)
 
 Blend layers using numpy array.
 
 #### Arguments
 
-- `background` *Image.Image* - background layer
-- `foreground` *Image.Image* - foreground layer (must be same size as background)
-- `blendType` *BlendType* - The blendtype
-- `opacity` *float* - The opacity of the foreground image
+----
+ - `background` *Image.Image* - background layer
+ - `foreground` *Image.Image* - foreground layer (must be same size as background)
+ - `blendType` *BlendType* - The blendtype
+ - `opacity` *float* - The opacity of the foreground image
 
 #### Returns
 
-- `Image.Image` - combined image
+-------
+ - `Image.Image` - combined image
 
 #### Signature
 
@@ -222,9 +314,9 @@ also alpha in 'layer above'
 
 Destination which overlaps the source, replaces the source.
 
-Fa = 0; Fb = αs
-co = αb x Cb x αs
-αo = αb x αs
+Fa = 0; Fb = as
+co = ab x Cb x as
+ao = ab x as
 
 #### Signature
 
@@ -376,17 +468,19 @@ def hue(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## imageFloatToInt
 
-[Show source in blend.py:372](../../../blendmodes/blend.py#L372)
+[Show source in blend.py:374](../../../blendmodes/blend.py#L374)
 
 Convert a numpy array representing an image to an array of ints.
 
 #### Arguments
 
-- `image` *np.ndarray* - numpy array of floats
+----
+ - `image` *np.ndarray* - numpy array of floats
 
 #### Returns
 
-- `np.ndarray` - numpy array of ints
+-------
+ - `np.ndarray` - numpy array of ints
 
 #### Signature
 
@@ -404,11 +498,13 @@ Convert a numpy array representing an image to an array of floats.
 
 #### Arguments
 
-- `image` *np.ndarray* - numpy array of ints
+----
+ - `image` *np.ndarray* - numpy array of ints
 
 #### Returns
 
-- `np.ndarray` - numpy array of floats
+-------
+ - `np.ndarray` - numpy array of floats
 
 #### Signature
 

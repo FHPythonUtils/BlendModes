@@ -13,10 +13,8 @@ sys.path.insert(0, str(Path(THISDIR).parent))
 
 from blendmodes.blend import BlendType, blendLayers
 
-# pylint:disable=invalid-name
 
-
-def test_normal():
+def test_normal() -> None:
 	"""Test normal."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -27,7 +25,7 @@ def test_normal():
 	)
 
 
-def test_multiply():
+def test_multiply() -> None:
 	"""Test multiply."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -38,7 +36,7 @@ def test_multiply():
 	)
 
 
-def test_additive():
+def test_additive() -> None:
 	"""Test additive."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -49,7 +47,7 @@ def test_additive():
 	)
 
 
-def test_colourburn():
+def test_colourburn() -> None:
 	"""Test colourburn."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -60,7 +58,7 @@ def test_colourburn():
 	)
 
 
-def test_colourdodge():
+def test_colourdodge() -> None:
 	"""Test colourdodge."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -71,7 +69,7 @@ def test_colourdodge():
 	)
 
 
-def test_reflect():
+def test_reflect() -> None:
 	"""Test reflect."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -82,7 +80,7 @@ def test_reflect():
 	)
 
 
-def test_glow():
+def test_glow() -> None:
 	"""Test glow."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -93,7 +91,7 @@ def test_glow():
 	)
 
 
-def test_overlay():
+def test_overlay() -> None:
 	"""Test overlay."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -104,7 +102,7 @@ def test_overlay():
 	)
 
 
-def test_difference():
+def test_difference() -> None:
 	"""Test difference."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -115,7 +113,7 @@ def test_difference():
 	)
 
 
-def test_negation():
+def test_negation() -> None:
 	"""Test negation."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -126,7 +124,7 @@ def test_negation():
 	)
 
 
-def test_lighten():
+def test_lighten() -> None:
 	"""Test lighten."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -137,7 +135,7 @@ def test_lighten():
 	)
 
 
-def test_darken():
+def test_darken() -> None:
 	"""Test darken."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -148,7 +146,7 @@ def test_darken():
 	)
 
 
-def test_screen():
+def test_screen() -> None:
 	"""Test screen."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -159,7 +157,7 @@ def test_screen():
 	)
 
 
-def test_xor():
+def test_xor() -> None:
 	"""Test xor."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -170,7 +168,7 @@ def test_xor():
 	)
 
 
-def test_softlight():
+def test_softlight() -> None:
 	"""Test softlight."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -181,7 +179,7 @@ def test_softlight():
 	)
 
 
-def test_hardlight():
+def test_hardlight() -> None:
 	"""Test hardlight."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -192,7 +190,7 @@ def test_hardlight():
 	)
 
 
-def test_grainextract():
+def test_grainextract() -> None:
 	"""Test grainextract."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -203,7 +201,7 @@ def test_grainextract():
 	)
 
 
-def test_grainmerge():
+def test_grainmerge() -> None:
 	"""Test grainmerge."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -214,7 +212,7 @@ def test_grainmerge():
 	)
 
 
-def test_divide():
+def test_divide() -> None:
 	"""Test divide."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -225,7 +223,7 @@ def test_divide():
 	)
 
 
-def test_hue():
+def test_hue() -> None:
 	"""Test hue."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -236,7 +234,7 @@ def test_hue():
 	)
 
 
-def test_saturation():
+def test_saturation() -> None:
 	"""Test saturation."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -247,7 +245,7 @@ def test_saturation():
 	)
 
 
-def test_colour():
+def test_colour() -> None:
 	"""Test colour."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -258,7 +256,7 @@ def test_colour():
 	)
 
 
-def test_luminosity():
+def test_luminosity() -> None:
 	"""Test luminosity."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -269,7 +267,7 @@ def test_luminosity():
 	)
 
 
-def test_pinlight():
+def test_pinlight() -> None:
 	"""Test pinlight."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -280,7 +278,7 @@ def test_pinlight():
 	)
 
 
-def test_vividlight():
+def test_vividlight() -> None:
 	"""Test vividlight."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -291,7 +289,7 @@ def test_vividlight():
 	)
 
 
-def test_exclusion():
+def test_exclusion() -> None:
 	"""Test exclusion."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -302,7 +300,7 @@ def test_exclusion():
 	)
 
 
-def test_destin():
+def test_destin() -> None:
 	"""Test destin."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -313,7 +311,7 @@ def test_destin():
 	)
 
 
-def test_destout():
+def test_destout() -> None:
 	"""Test destout."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -324,7 +322,7 @@ def test_destout():
 	)
 
 
-def test_destatop():
+def test_destatop() -> None:
 	"""Test destatop."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -335,7 +333,7 @@ def test_destatop():
 	)
 
 
-def test_srcatop():
+def test_srcatop() -> None:
 	"""Test srcatop."""
 	background = Image.open(f"{THISDIR}/data/background.png")
 	foreground = Image.open(f"{THISDIR}/data/foreground.png")
@@ -346,7 +344,7 @@ def test_srcatop():
 	)
 
 
-def test_non_rgba():
+def test_non_rgba() -> None:
 	background = Image.open(f"{THISDIR}/data/background.jpg")
 	foreground = Image.open(f"{THISDIR}/data/foreground.jpg")
 	blendLayers(background, foreground, BlendType.NORMAL)
