@@ -3,6 +3,21 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
+## 2024.1 - 2024/01/27
+
+- remove `imagetools.renderWAlphaOffset` as `blendLayers` now supports this:
+  ```py
+	def blendLayers(
+		background: Image.Image,
+		foreground: Image.Image,
+		blendType: BlendType | tuple[str, ...],
+		opacity: float = 1.0,
+		offsets: tuple[int, int] = (0, 0),
+	) -> Image.Image:
+  ```
+- better support for different sized images. Note if the background is smaller than the
+  foreground then some of the foreground will be cut off
+
 ## 2024.0.1 - 2024/01/19
 
 - update dependencies

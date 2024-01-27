@@ -11,4 +11,3 @@
 
 - [Blend](./blend.md)
 - [BlendType](./blendtype.md)
-- [Imagetools](./imagetools.md)

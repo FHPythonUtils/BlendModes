@@ -7,4 +7,3 @@ A full list of `Blendmodes` project modules.
 - [Blendmodes](blendmodes/index.md#blendmodes)
     - [Blend](blendmodes/blend.md#blend)
     - [BlendType](blendmodes/blendtype.md#blendtype)
-    - [Imagetools](blendmodes/imagetools.md#imagetools)

@@ -350,34 +350,9 @@ def test_non_rgba() -> None:
 	blendLayers(background, foreground, BlendType.NORMAL)
 
 
-test_normal()
-test_multiply()
-test_additive()
-test_colourburn()
-test_colourdodge()
-test_reflect()
-test_glow()
-test_overlay()
-test_difference()
-test_negation()
-test_lighten()
-test_darken()
-test_screen()
-test_xor()
-test_softlight()
-test_hardlight()
-test_grainextract()
-test_grainmerge()
-test_divide()
-test_hue()
-test_saturation()
-test_colour()
-test_luminosity()
-test_pinlight()
-test_vividlight()
-test_exclusion()
-test_destin()
-test_destout()
-test_destatop()
-test_srcatop()
-test_non_rgba()
+if __name__ == "__main__":
+	import sys
+
+	import pytest
+
+	pytest.main(sys.argv)

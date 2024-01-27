@@ -272,7 +272,7 @@ def destin(
 	foregroundAlpha: np.ndarray,
 	backgroundColour: np.ndarray,
 	foregroundColour: np.ndarray,
-):
+) -> tuple[np.ndarray, np.ndarray]:
 	"""'clip' composite mode.
 
 	All parts of 'layer above' which are alpha in 'layer below' will be made
@@ -300,7 +300,7 @@ def destout(
 	foregroundAlpha: np.ndarray,
 	backgroundColour: np.ndarray,
 	foregroundColour: np.ndarray,
-):
+) -> tuple[np.ndarray, np.ndarray]:
 	"""Reverse 'Clip' composite mode.
 
 	All parts of 'layer below' which are alpha in 'layer above' will be made
@@ -323,7 +323,7 @@ def destatop(
 	foregroundAlpha: np.ndarray,
 	backgroundColour: np.ndarray,
 	foregroundColour: np.ndarray,
-):
+) -> tuple[np.ndarray, np.ndarray]:
 	"""Place the layer below above the 'layer above' in places where the 'layer above' exists...
 
 	where 'layer below' does not exist, but 'layer above' does, place 'layer-above'
@@ -344,7 +344,7 @@ def srcatop(
 	foregroundAlpha: np.ndarray,
 	backgroundColour: np.ndarray,
 	foregroundColour: np.ndarray,
-):
+) -> tuple[np.ndarray, np.ndarray]:
 	"""Place the layer below above the 'layer above' in places where the 'layer above' exists."""
 	outAlpha = (foregroundAlpha * backgroundAlpha) + (backgroundAlpha * (1 - foregroundAlpha))
 	with np.errstate(divide="ignore", invalid="ignore"):
@@ -459,34 +459,150 @@ def blendLayers(
 	foreground: Image.Image,
 	blendType: BlendType | tuple[str, ...],
 	opacity: float = 1.0,
+	offsets: tuple[int, int] = (0, 0),
 ) -> Image.Image:
-	"""Blend layers using numpy array.
+	"""Blend two layers (background, and foreground).
+
+	Note if the background is smaller than the foreground then some of the foreground will be cut
+	off
 
 	Args:
 	----
-		background (Image.Image): background layer
-		foreground (Image.Image): foreground layer (must be same size as background)
-		blendType (BlendType): The blendtype
-		opacity (float): The opacity of the foreground image
+		background (Image.Image): The background layer.
+		foreground (Image.Image): The foreground layer (must be the same size as the background).
+		blendType (BlendType): The blend type to be applied.
+		opacity (float, optional): The opacity of the foreground image. Defaults to 1.0.
+		offsets (Tuple[int, int], optional): Offsets for the foreground layer. Defaults to (0, 0).
 
 	Returns:
 	-------
-		Image.Image: combined image
+		Image.Image: The combined image.
+
+	Examples:
+	--------
+		# Blend two layers with default parameters
+		combined_image = blendLayers(background_image, foreground_image, BlendType.NORMAL)
+
+		# Blend two layers with custom opacity and offsets
+		combined_image = blendLayers(
+			background_image,
+			foreground_image,
+			BlendType.MULTIPLY,
+			opacity=0.7,
+			offsets=(100, 50)
+		)
 	"""
-	# Convert the Image.Image to a numpy array
-	npForeground: np.ndarray = imageIntToFloat(np.array(foreground.convert("RGBA")))
-	npBackground: np.ndarray = imageIntToFloat(np.array(background.convert("RGBA")))
+	arr = blendLayersArray(
+		background=background,
+		foreground=foreground,
+		blendType=blendType,
+		opacity=opacity,
+		offsets=offsets,
+	)
 
-	# Get the alpha from the layers
-	backgroundAlpha = npBackground[:, :, 3]
-	foregroundAlpha = npForeground[:, :, 3] * opacity
-	combinedAlpha = backgroundAlpha * foregroundAlpha
+	return Image.fromarray(np.uint8(np.around(arr, 0)))
 
-	# Get the colour from the layers
-	backgroundColor = npBackground[:, :, 0:3]
-	foregroundColor = npForeground[:, :, 0:3]
 
-	# Some effects require alpha
+def blendLayersArray(
+	background: np.ndarray | Image.Image,
+	foreground: np.ndarray | Image.Image,
+	blendType: BlendType,
+	opacity: float = 1.0,
+	offsets: tuple[int, int] = (0, 0),
+) -> np.ndarray:
+	"""Blend two layers (background, and foreground).
+
+	Note if the background is smaller than the foreground then some of the foreground will be cut
+	off
+
+	Args:
+	----
+		background (np.ndarray | Image.Image): The background layer.
+		foreground (np.ndarray | Image.Image): The foreground layer (must be the same size as the background).
+		blendType (BlendType): The blend type to be applied.
+		opacity (float, optional): The opacity of the foreground image. Defaults to 1.0.
+		offsets (Tuple[int, int], optional): Offsets for the foreground layer. Defaults to (0, 0).
+
+	Returns:
+	-------
+		np.ndarray: The combined image.
+
+	Examples:
+	--------
+		# Blend two layers with default parameters
+		combined_image = blendLayers(background_image, foreground_image, BlendType.NORMAL)
+
+		# Blend two layers with custom opacity and offsets
+		combined_image = blendLayers(
+			background_image,
+			foreground_image,
+			BlendType.MULTIPLY,
+			opacity=0.7,
+			offsets=(100, 50)
+		)
+	"""
+	# Convert the Image.Image to a numpy array if required
+	if isinstance(background, Image.Image):
+		background = np.array(background.convert("RGBA"))
+	if isinstance(foreground, Image.Image):
+		foreground = np.array(foreground.convert("RGBA"))
+
+	# do any offset shifting first
+	if offsets[0] > 0:
+		foreground = np.hstack(
+			(np.zeros((foreground.shape[0], offsets[0], 4), dtype=np.float64), foreground)
+		)
+	elif offsets[0] < 0:
+		if offsets[0] > -1 * foreground.shape[1]:
+			foreground = foreground[:, -1 * offsets[0] :, :]
+		else:
+			# offset offscreen completely, there is nothing left
+			return np.zeros(background.shape, dtype=np.float64)
+	if offsets[1] > 0:
+		foreground = np.vstack(
+			(np.zeros((offsets[1], foreground.shape[1], 4), dtype=np.float64), foreground)
+		)
+	elif offsets[1] < 0:
+		if offsets[1] > -1 * foreground.shape[0]:
+			foreground = foreground[-1 * offsets[1] :, :, :]
+		else:
+			# offset offscreen completely, there is nothing left
+			return np.zeros(background.shape, dtype=np.float64)
+
+	# resize array to fill small images with zeros
+	if foreground.shape[0] < background.shape[0]:
+		foreground = np.vstack(
+			(
+				foreground,
+				np.zeros(
+					(background.shape[0] - foreground.shape[0], foreground.shape[1], 4),
+					dtype=np.float64,
+				),
+			)
+		)
+	if foreground.shape[1] < background.shape[1]:
+		foreground = np.hstack(
+			(
+				foreground,
+				np.zeros(
+					(foreground.shape[0], background.shape[1] - foreground.shape[1], 4),
+					dtype=np.float64,
+				),
+			)
+		)
+
+	# crop the source if the backdrop is smaller
+	foreground = foreground[: background.shape[0], : background.shape[1], :]
+
+	lower_norm = background / 255.0
+	upper_norm = foreground / 255.0
+
+	upper_alpha = upper_norm[:, :, 3] * opacity
+	lower_alpha = lower_norm[:, :, 3]
+
+	upper_rgb = upper_norm[:, :, :3]
+	lower_rgb = lower_norm[:, :, :3]
+
 	alphaFunc = {
 		BlendType.DESTIN: destin,
 		BlendType.DESTOUT: destout,
@@ -495,28 +611,34 @@ def blendLayers(
 	}
 
 	if blendType in alphaFunc:
-		return Image.fromarray(
-			imageFloatToInt(
-				np.clip(
-					np.dstack(
-						alphaFunc[blendType](
-							backgroundAlpha, foregroundAlpha, backgroundColor, foregroundColor
-						)
-					),
-					a_min=0,
-					a_max=1,
-				)
-			)
+		out_rgb, out_alpha = alphaFunc[blendType](lower_alpha, upper_alpha, lower_rgb, upper_rgb)
+	else:
+		out_rgb, out_alpha = alpha_comp_shell(
+			lower_alpha, upper_alpha, lower_rgb, upper_rgb, blendType
 		)
 
-	# Get the colours and the alpha for the new image
-	colorComponents = (
-		(backgroundAlpha - combinedAlpha)[:, :, None] * backgroundColor
-		+ (foregroundAlpha - combinedAlpha)[:, :, None] * foregroundColor
-		+ combinedAlpha[:, :, None] * blend(backgroundColor, foregroundColor, blendType)
-	)
-	alphaComponent = backgroundAlpha + foregroundAlpha - combinedAlpha
+	return np.nan_to_num(np.dstack((out_rgb, out_alpha)), copy=False) * 255.0
 
-	return Image.fromarray(
-		imageFloatToInt(np.clip(np.dstack((colorComponents, alphaComponent)), a_min=0, a_max=1))
-	)
+
+def alpha_comp_shell(
+	lower_alpha: np.ndarray,
+	upper_alpha: np.ndarray,
+	lower_rgb: np.ndarray,
+	upper_rgb: np.ndarray,
+	blendType: BlendType | tuple[str, ...],
+) -> tuple[np.ndarray, np.ndarray]:
+	"""
+	Implement common transformations occurring in any blend or composite mode.
+	"""
+
+	out_alpha = upper_alpha + lower_alpha - (upper_alpha * lower_alpha)
+
+	blend_rgb = blend(lower_rgb, upper_rgb, blendType)
+
+	lower_rgb_part = np.multiply(((1.0 - upper_alpha) * lower_alpha)[:, :, None], lower_rgb)
+	upper_rgb_part = np.multiply(((1.0 - lower_alpha) * upper_alpha)[:, :, None], upper_rgb)
+	blended_rgb_part = np.multiply((lower_alpha * upper_alpha)[:, :, None], blend_rgb)
+
+	out_rgb = np.divide((lower_rgb_part + upper_rgb_part + blended_rgb_part), out_alpha[:, :, None])
+
+	return out_rgb, out_alpha

@@ -10,8 +10,12 @@
   - [_setLum](#_setlum)
   - [_setSat](#_setsat)
   - [additive](#additive)
+  - [alpha_comp_shell](#alpha_comp_shell)
   - [blend](#blend)
   - [blendLayers](#blendlayers)
+- [Blend two layers with custom opacity and offsets](#blend-two-layers-with-custom-opacity-and-offsets)
+  - [blendLayersArray](#blendlayersarray)
+- [Blend two layers with custom opacity and offsets](#blend-two-layers-with-custom-opacity-and-offsets-1)
   - [colour](#colour)
   - [colourburn](#colourburn)
   - [colourdodge](#colourdodge)
@@ -144,6 +148,26 @@ def additive(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 
 
+## alpha_comp_shell
+
+[Show source in blend.py:623](../../../blendmodes/blend.py#L623)
+
+Implement common transformations occurring in any blend or composite mode.
+
+#### Signature
+
+```python
+def alpha_comp_shell(
+    lower_alpha: np.ndarray,
+    upper_alpha: np.ndarray,
+    lower_rgb: np.ndarray,
+    upper_rgb: np.ndarray,
+    blendType: BlendType | tuple[str, ...],
+) -> tuple[np.ndarray, np.ndarray]: ...
+```
+
+
+
 ## blend
 
 [Show source in blend.py:391](../../../blendmodes/blend.py#L391)
@@ -197,20 +221,39 @@ def blend(
 
 [Show source in blend.py:457](../../../blendmodes/blend.py#L457)
 
-Blend layers using numpy array.
+Blend two layers (background, and foreground).
+
+Note if the background is smaller than the foreground then some of the foreground will be cut
+off
 
 #### Arguments
 
 ----
- - `background` *Image.Image* - background layer
- - `foreground` *Image.Image* - foreground layer (must be same size as background)
- - `blendType` *BlendType* - The blendtype
- - `opacity` *float* - The opacity of the foreground image
+ - `background` *Image.Image* - The background layer.
+ - `foreground` *Image.Image* - The foreground layer (must be the same size as the background).
+ - `blendType` *BlendType* - The blend type to be applied.
+ - `opacity` *float, optional* - The opacity of the foreground image. Defaults to 1.0.
+ offsets (Tuple[int, int], optional): Offsets for the foreground layer. Defaults to (0, 0).
 
 #### Returns
 
 -------
- - `Image.Image` - combined image
+ - `Image.Image` - The combined image.
+
+#### Examples
+
+--------
+ # Blend two layers with default parameters
+ combined_image = blendLayers(background_image, foreground_image, BlendType.NORMAL)
+
+# Blend two layers with custom opacity and offsets
+combined_image = blendLayers(
+ background_image,
+ foreground_image,
+ BlendType.MULTIPLY,
+ opacity=0.7,
+ offsets=(100, 50)
+)
 
 #### Signature
 
@@ -220,7 +263,60 @@ def blendLayers(
     foreground: Image.Image,
     blendType: BlendType | tuple[str, ...],
     opacity: float = 1.0,
+    offsets: tuple[int, int] = (0, 0),
 ) -> Image.Image: ...
+```
+
+
+
+## blendLayersArray
+
+[Show source in blend.py:506](../../../blendmodes/blend.py#L506)
+
+Blend two layers (background, and foreground).
+
+Note if the background is smaller than the foreground then some of the foreground will be cut
+off
+
+#### Arguments
+
+----
+ background (np.ndarray | Image.Image): The background layer.
+ foreground (np.ndarray | Image.Image): The foreground layer (must be the same size as the background).
+ - `blendType` *BlendType* - The blend type to be applied.
+ - `opacity` *float, optional* - The opacity of the foreground image. Defaults to 1.0.
+ offsets (Tuple[int, int], optional): Offsets for the foreground layer. Defaults to (0, 0).
+
+#### Returns
+
+-------
+ - `np.ndarray` - The combined image.
+
+#### Examples
+
+--------
+ # Blend two layers with default parameters
+ combined_image = blendLayers(background_image, foreground_image, BlendType.NORMAL)
+
+# Blend two layers with custom opacity and offsets
+combined_image = blendLayers(
+ background_image,
+ foreground_image,
+ BlendType.MULTIPLY,
+ opacity=0.7,
+ offsets=(100, 50)
+)
+
+#### Signature
+
+```python
+def blendLayersArray(
+    background: np.ndarray | Image.Image,
+    foreground: np.ndarray | Image.Image,
+    blendType: BlendType,
+    opacity: float = 1.0,
+    offsets: tuple[int, int] = (0, 0),
+) -> np.ndarray: ...
 ```
 
 
@@ -297,7 +393,7 @@ def destatop(
     foregroundAlpha: np.ndarray,
     backgroundColour: np.ndarray,
     foregroundColour: np.ndarray,
-): ...
+) -> tuple[np.ndarray, np.ndarray]: ...
 ```
 
 
@@ -326,7 +422,7 @@ def destin(
     foregroundAlpha: np.ndarray,
     backgroundColour: np.ndarray,
     foregroundColour: np.ndarray,
-): ...
+) -> tuple[np.ndarray, np.ndarray]: ...
 ```
 
 
@@ -349,7 +445,7 @@ def destout(
     foregroundAlpha: np.ndarray,
     backgroundColour: np.ndarray,
     foregroundColour: np.ndarray,
-): ...
+) -> tuple[np.ndarray, np.ndarray]: ...
 ```
 
 
@@ -682,7 +778,7 @@ def srcatop(
     foregroundAlpha: np.ndarray,
     backgroundColour: np.ndarray,
     foregroundColour: np.ndarray,
-): ...
+) -> tuple[np.ndarray, np.ndarray]: ...
 ```
 
 

@@ -1,6 +1,7 @@
 !test
 README.rst
 requirements_optional.txt
+profile.*
 
 # DepHell stuff
 poetry.lock
