@@ -610,14 +610,17 @@ def blendLayersArray(
 		BlendType.DESTATOP: destatop,
 	}
 
-	if blendType in alphaFunc:
-		out_rgb, out_alpha = alphaFunc[blendType](lower_alpha, upper_alpha, lower_rgb, upper_rgb)
-	else:
-		out_rgb, out_alpha = alpha_comp_shell(
-			lower_alpha, upper_alpha, lower_rgb, upper_rgb, blendType
-		)
+	with np.errstate(invalid="ignore", divide="ignore"):
+		if blendType in alphaFunc:
+			out_rgb, out_alpha = alphaFunc[blendType](
+				lower_alpha, upper_alpha, lower_rgb, upper_rgb
+			)
+		else:
+			out_rgb, out_alpha = alpha_comp_shell(
+				lower_alpha, upper_alpha, lower_rgb, upper_rgb, blendType
+			)
 
-	return np.nan_to_num(np.dstack((out_rgb, out_alpha)), copy=False) * 255.0
+		return np.nan_to_num(np.dstack((out_rgb, out_alpha)), copy=False) * 255.0
 
 
 def alpha_comp_shell(
