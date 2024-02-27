@@ -150,7 +150,7 @@ def additive(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## alpha_comp_shell
 
-[Show source in blend.py:623](../../../blendmodes/blend.py#L623)
+[Show source in blend.py:626](../../../blendmodes/blend.py#L626)
 
 Implement common transformations occurring in any blend or composite mode.
 

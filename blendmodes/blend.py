@@ -367,6 +367,7 @@ def imageIntToFloat(image: np.ndarray) -> np.ndarray:
 	Returns:
 	-------
 		np.ndarray: numpy array of floats
+
 	"""
 	return image / 255
 
@@ -381,6 +382,7 @@ def imageFloatToInt(image: np.ndarray) -> np.ndarray:
 	Returns:
 	-------
 		np.ndarray: numpy array of ints
+
 	"""
 	clippedIm = np.clip((image * 255).round(), 0, 255)
 	with warnings.catch_warnings():
@@ -421,6 +423,7 @@ def blend(background: np.ndarray, foreground: np.ndarray, blendType: BlendType) 
 		[0. 0. 0.]
 		[0. 0. 0.]
 		[0. 0. 0.]]]
+
 	"""
 	blendLookup = {
 		BlendType.NORMAL: normal,
@@ -491,6 +494,7 @@ def blendLayers(
 			opacity=0.7,
 			offsets=(100, 50)
 		)
+
 	"""
 	arr = blendLayersArray(
 		background=background,
@@ -540,6 +544,7 @@ def blendLayersArray(
 			opacity=0.7,
 			offsets=(100, 50)
 		)
+
 	"""
 	# Convert the Image.Image to a numpy array if required
 	if isinstance(background, Image.Image):
