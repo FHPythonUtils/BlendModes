@@ -150,7 +150,7 @@ def additive(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## alpha_comp_shell
 
-[Show source in blend.py:626](../../../blendmodes/blend.py#L626)
+[Show source in blend.py:631](../../../blendmodes/blend.py#L631)
 
 Implement common transformations occurring in any blend or composite mode.
 
@@ -170,7 +170,7 @@ def alpha_comp_shell(
 
 ## blend
 
-[Show source in blend.py:391](../../../blendmodes/blend.py#L391)
+[Show source in blend.py:393](../../../blendmodes/blend.py#L393)
 
 Blend pixels.
 
@@ -219,7 +219,7 @@ def blend(
 
 ## blendLayers
 
-[Show source in blend.py:457](../../../blendmodes/blend.py#L457)
+[Show source in blend.py:460](../../../blendmodes/blend.py#L460)
 
 Blend two layers (background, and foreground).
 
@@ -271,7 +271,7 @@ def blendLayers(
 
 ## blendLayersArray
 
-[Show source in blend.py:506](../../../blendmodes/blend.py#L506)
+[Show source in blend.py:510](../../../blendmodes/blend.py#L510)
 
 Blend two layers (background, and foreground).
 
@@ -564,7 +564,7 @@ def hue(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## imageFloatToInt
 
-[Show source in blend.py:374](../../../blendmodes/blend.py#L374)
+[Show source in blend.py:375](../../../blendmodes/blend.py#L375)
 
 Convert a numpy array representing an image to an array of ints.
 
