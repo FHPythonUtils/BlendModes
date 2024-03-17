@@ -215,6 +215,10 @@ def blend(
 ) -> np.ndarray: ...
 ```
 
+#### See also
+
+- [BlendType](./blendtype.md#blendtype)
+
 
 
 ## blendLayers
@@ -318,6 +322,10 @@ def blendLayersArray(
     offsets: tuple[int, int] = (0, 0),
 ) -> np.ndarray: ...
 ```
+
+#### See also
+
+- [BlendType](./blendtype.md#blendtype)
 
 
 
