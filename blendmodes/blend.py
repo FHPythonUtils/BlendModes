@@ -24,7 +24,7 @@ import warnings
 import numpy as np
 from PIL import Image
 
-from .blendtype import BlendType
+from blendmodes.blendtype import BlendType
 
 
 def normal(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
