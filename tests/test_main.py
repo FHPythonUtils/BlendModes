@@ -8,8 +8,8 @@ from pathlib import Path
 from imgcompare import imgcompare
 from PIL import Image
 
-THISDIR = str(Path(__file__).resolve().parent)
-sys.path.insert(0, str(Path(THISDIR).parent))
+THISDIR = Path(__file__).resolve().parent
+sys.path.insert(0, str(THISDIR.parent))
 
 from blendmodes.blend import BlendType, blendLayers
 
