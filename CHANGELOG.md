@@ -3,6 +3,11 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
+## 2025 - 2025/02/20
+
+- optimise `_setLum` and `_setSat` functions
+- use uv instead of poetry
+
 ## 2024.1.1 - 2024/03/17
 
 - suppress warnings

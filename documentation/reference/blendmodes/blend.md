@@ -13,9 +13,7 @@
   - [alpha_comp_shell](#alpha_comp_shell)
   - [blend](#blend)
   - [blendLayers](#blendlayers)
-- [Blend two layers with custom opacity and offsets](#blend-two-layers-with-custom-opacity-and-offsets)
   - [blendLayersArray](#blendlayersarray)
-- [Blend two layers with custom opacity and offsets](#blend-two-layers-with-custom-opacity-and-offsets-1)
   - [colour](#colour)
   - [colourburn](#colourburn)
   - [colourdodge](#colourdodge)
@@ -136,7 +134,7 @@ def additive(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## alpha_comp_shell
 
-[Show source in blend.py:638](../../../blendmodes/blend.py#L638)
+[Show source in blend.py:627](../../../blendmodes/blend.py#L627)
 
 Implement common transformations occurring in any blend or composite mode.
 
@@ -211,39 +209,43 @@ def blend(
 
 [Show source in blend.py:467](../../../blendmodes/blend.py#L467)
 
-Blend two layers (background, and foreground).
+Blend two layers (background and foreground), where the background may
+be cropped if smaller than the foreground.
 
-Note if the background is smaller than the foreground then some of the foreground will be cut
-off
+:param Image.Image background: The background layer.
+:param Image.Image foreground: The foreground layer (must be the
+same size as the background).
 
 #### Arguments
 
-----
- - `background` *Image.Image* - The background layer.
- - `foreground` *Image.Image* - The foreground layer (must be the same size as the background).
- - `blendType` *BlendType* - The blend type to be applied.
- - `opacity` *float, optional* - The opacity of the foreground image. Defaults to 1.0.
- offsets (Tuple[int, int], optional): Offsets for the foreground layer. Defaults to (0, 0).
+- `blendType` *BlendType* - The blend type to be applied.
+- `opacity` *float* - The opacity of the foreground image. Defaults to 1.0. (optional)
+:param tuple[int, int] offsets: Offsets for the foreground layer. Defaults to (0, 0). (optional)
 
 #### Returns
 
--------
- - `Image.Image` - The combined image.
+Type: *Image.Image*
+The combined image.
 
-#### Examples
-
+Examples
 --------
- # Blend two layers with default parameters
- combined_image = blendLayers(background_image, foreground_image, BlendType.NORMAL)
+Blend two layers with default parameters
 
-# Blend two layers with custom opacity and offsets
-combined_image = blendLayers(
- background_image,
- foreground_image,
- BlendType.MULTIPLY,
- opacity=0.7,
- offsets=(100, 50)
-)
+```python
+>>> combined_image = blendLayers(background_image, foreground_image, BlendType.NORMAL)
+```
+
+Blend two layers with custom opacity and offsets
+
+```python
+>>> combined_image = blendLayers(
+...	background_image,
+...	foreground_image,
+...	BlendType.MULTIPLY,
+...	opacity=0.7,
+...	offsets=(100, 50)
+...)
+```
 
 #### Signature
 
@@ -261,41 +263,45 @@ def blendLayers(
 
 ## blendLayersArray
 
-[Show source in blend.py:517](../../../blendmodes/blend.py#L517)
+[Show source in blend.py:511](../../../blendmodes/blend.py#L511)
 
-Blend two layers (background, and foreground).
+Blend two layers (background and foreground), where the background may
+be cropped if smaller than the foreground.
 
-Note if the background is smaller than the foreground then some of the foreground will be cut
-off
+:param np.ndarray | Image.Image background: The background layer.
+:param np.ndarray | Image.Image foreground: The foreground layer (must be the
+same size as the background).
 
 #### Arguments
 
-----
- background (np.ndarray | Image.Image): The background layer.
- foreground (np.ndarray | Image.Image): The foreground layer (must be the same size as the background).
- - `blendType` *BlendType* - The blend type to be applied.
- - `opacity` *float, optional* - The opacity of the foreground image. Defaults to 1.0.
- offsets (Tuple[int, int], optional): Offsets for the foreground layer. Defaults to (0, 0).
+- `blendType` *BlendType* - The blend type to be applied.
+- `opacity` *float* - The opacity of the foreground image. Defaults to 1.0. (optional)
+:param tuple[int, int] offsets: Offsets for the foreground layer. Defaults to (0, 0). (optional)
 
 #### Returns
 
--------
- - `np.ndarray` - The combined image.
+Type: *np.ndarray*
+The combined image.
 
-#### Examples
-
+Examples
 --------
- # Blend two layers with default parameters
- combined_image = blendLayers(background_image, foreground_image, BlendType.NORMAL)
+Blend two layers with default parameters
 
-# Blend two layers with custom opacity and offsets
-combined_image = blendLayers(
- background_image,
- foreground_image,
- BlendType.MULTIPLY,
- opacity=0.7,
- offsets=(100, 50)
-)
+```python
+>>> combined_image = blendLayers(background_image, foreground_image, BlendType.NORMAL)
+```
+
+Blend two layers with custom opacity and offsets
+
+```python
+>>> combined_image = blendLayers(
+...	background_image,
+...	foreground_image,
+...	BlendType.MULTIPLY,
+...	opacity=0.7,
+...	offsets=(100, 50)
+...)
+```
 
 #### Signature
 

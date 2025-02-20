@@ -1,9 +1,9 @@
 [project]
 name = "blendmodes"
-version = "2024.1.1"
+version = "2025"
 description = "Use this module to apply a number of blending modes to a background and foreground image"
 authors = [{ name = "FredHappyface" }]
-requires-python = ">=3.9,<4.0"
+requires-python = ">=3.9"
 readme = "README.md"
 license = "mit"
 classifiers = [
@@ -58,7 +58,7 @@ ignore = [
 fixable = ["ALL"]
 
 [tool.ruff.lint.per-file-ignores]
-"**/{tests,docs,tools}/*" = ["D", "S101", "E402"]
+"**/{tests,docs,tools}/*" = ["D", "S101", "E402", "S311"]
 
 [tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all" # Disallow all relative imports.
