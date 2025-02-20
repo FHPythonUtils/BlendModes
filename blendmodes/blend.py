@@ -178,27 +178,34 @@ def _setLum(originalColours: np.ndarray, newLuminosity: np.ndarray) -> np.ndarra
 	"""Set a new luminosity value for the matrix of color."""
 	_colours = originalColours.copy()
 	_luminosity = _lum(_colours)
+
+	# Apply deltaLum in a single step
 	deltaLum = newLuminosity - _luminosity
-	_colours[:, :, 0] += deltaLum
-	_colours[:, :, 1] += deltaLum
-	_colours[:, :, 2] += deltaLum
+	_colours += deltaLum[..., None]  # Broadcasting to RGB channels
+
+	# Compute new luminosity, min, and max values
 	_luminosity = _lum(_colours)
-	_minColours = np.min(_colours, axis=2)
-	_MaxColours = np.max(_colours, axis=2)
-	for i in range(_colours.shape[0]):
-		for j in range(_colours.shape[1]):
-			_colour = _colours[i][j]
-			newLuminosity = _luminosity[i, j]
-			minColour = _minColours[i, j]
-			maxColour = _MaxColours[i, j]
-			if minColour < 0:
-				_colours[i][j] = newLuminosity + (
-					((_colour - newLuminosity) * newLuminosity) / (newLuminosity - minColour)
-				)
-			if maxColour > 1:
-				_colours[i][j] = newLuminosity + (
-					((_colour - newLuminosity) * (1 - newLuminosity)) / (maxColour - newLuminosity)
-				)
+	minColours = np.min(_colours, axis=2)
+	maxColours = np.max(_colours, axis=2)
+
+	# Create masks for values that need adjustment
+	minMask = minColours < 0
+	maxMask = maxColours > 1
+
+	# Apply min correction
+	_colours[minMask] = (
+		_luminosity[minMask, None] +
+		((_colours[minMask] - _luminosity[minMask, None]) * _luminosity[minMask, None]) /
+		(_luminosity[minMask, None] - minColours[minMask, None])
+	)
+
+	# Apply max correction
+	_colours[maxMask] = (
+		_luminosity[maxMask, None] +
+		((_colours[maxMask] - _luminosity[maxMask, None]) * (1 - _luminosity[maxMask, None])) /
+		(maxColours[maxMask, None] - _luminosity[maxMask, None])
+	)
+
 	return _colours
 
 

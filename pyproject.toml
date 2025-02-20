@@ -36,6 +36,7 @@ dev = [
 	"pyright>=1.1.394",
 	"pytest>=8.3.4",
 	"ruff>=0.9.7",
+	"safety>=3.3.0",
 ]
 
 [tool.ruff]
