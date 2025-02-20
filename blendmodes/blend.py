@@ -193,18 +193,14 @@ def _setLum(originalColours: np.ndarray, newLuminosity: np.ndarray) -> np.ndarra
 	maxMask = maxColours > 1
 
 	# Apply min correction
-	_colours[minMask] = (
-		_luminosity[minMask, None] +
-		((_colours[minMask] - _luminosity[minMask, None]) * _luminosity[minMask, None]) /
-		(_luminosity[minMask, None] - minColours[minMask, None])
-	)
+	_colours[minMask] = _luminosity[minMask, None] + (
+		(_colours[minMask] - _luminosity[minMask, None]) * _luminosity[minMask, None]
+	) / (_luminosity[minMask, None] - minColours[minMask, None])
 
 	# Apply max correction
-	_colours[maxMask] = (
-		_luminosity[maxMask, None] +
-		((_colours[maxMask] - _luminosity[maxMask, None]) * (1 - _luminosity[maxMask, None])) /
-		(maxColours[maxMask, None] - _luminosity[maxMask, None])
-	)
+	_colours[maxMask] = _luminosity[maxMask, None] + (
+		(_colours[maxMask] - _luminosity[maxMask, None]) * (1 - _luminosity[maxMask, None])
+	) / (maxColours[maxMask, None] - _luminosity[maxMask, None])
 
 	return _colours
 
@@ -219,38 +215,42 @@ def _sat(colours: np.ndarray) -> np.ndarray:
 
 
 def _setSat(originalColours: np.ndarray, newSaturation: np.ndarray) -> np.ndarray:
-	"""Set a new saturation value for the matrix of color.
-
-	The current implementation cannot be vectorized in an efficient manner,
-	so it is very slow,
-	O(m*n) at least. This might be able to be improved with openCL if that is
-	the direction that the lib takes.
-	:param c: x by x by 3 matrix of rgb color components of pixels
-	:param s: int of the new saturation value for the matrix
-	:return: x by x by 3 matrix of luminosity of pixels
-	"""
+	"""Set a new saturation value for the matrix of color."""
 	_colours = originalColours.copy()
-	for i in range(_colours.shape[0]):
-		for j in range(_colours.shape[1]):
-			_colour = _colours[i][j]
-			minI = 0
-			midI = 1
-			maxI = 2
-			if _colour[midI] < _colour[minI]:
-				minI, midI = midI, minI
-			if _colour[maxI] < _colour[midI]:
-				midI, maxI = maxI, midI
-			if _colour[midI] < _colour[minI]:
-				minI, midI = midI, minI
-			if _colour[maxI] - _colour[minI] > 0.0:
-				_colours[i][j][midI] = ((_colour[midI] - _colour[minI]) * newSaturation[i, j]) / (
-					_colour[maxI] - _colour[minI]
-				)
-				_colours[i][j][maxI] = newSaturation[i, j]
-			else:
-				_colours[i][j][midI] = 0
-				_colours[i][j][maxI] = 0
-			_colours[i][j][minI] = 0
+
+	# Sort each pixel's color channels to find min, mid, and max
+	sorted_indices = np.argsort(_colours, axis=2)
+	minI = sorted_indices[:, :, 0]
+	midI = sorted_indices[:, :, 1]
+	maxI = sorted_indices[:, :, 2]
+
+	# Extract min, mid, max values
+	minColours = np.take_along_axis(_colours, minI[..., None], axis=2).squeeze()
+	midColours = np.take_along_axis(_colours, midI[..., None], axis=2).squeeze()
+	maxColours = np.take_along_axis(_colours, maxI[..., None], axis=2).squeeze()
+
+	# Compute scaling factor
+	rangeColours = maxColours - minColours
+	nonzeroMask = rangeColours > 0
+
+	# Apply saturation scaling
+	midColours[nonzeroMask] = (
+		(midColours[nonzeroMask] - minColours[nonzeroMask]) * newSaturation[nonzeroMask]
+	) / rangeColours[nonzeroMask]
+	maxColours[nonzeroMask] = newSaturation[nonzeroMask]
+
+	# Zero out mid and max when rangeColours == 0
+	midColours[~nonzeroMask] = 0
+	maxColours[~nonzeroMask] = 0
+
+	# Set min channel to zero
+	minColours.fill(0)
+
+	# Reassemble the color matrix
+	np.put_along_axis(_colours, minI[..., None], minColours[..., None], axis=2)
+	np.put_along_axis(_colours, midI[..., None], midColours[..., None], axis=2)
+	np.put_along_axis(_colours, maxI[..., None], maxColours[..., None], axis=2)
+
 	return _colours
 
 
