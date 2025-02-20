@@ -1,9 +1,11 @@
-[tool.poetry]
+[project]
 name = "blendmodes"
 version = "2024.1.1"
-license = "mit"
 description = "Use this module to apply a number of blending modes to a background and foreground image"
-authors = ["FredHappyface"]
+authors = [{ name = "FredHappyface" }]
+requires-python = ">=3.9,<4.0"
+readme = "README.md"
+license = "mit"
 classifiers = [
 	"Development Status :: 5 - Production/Stable",
 	"Intended Audience :: Developers",
@@ -13,30 +15,28 @@ classifiers = [
 	"Programming Language :: Python :: Implementation :: CPython",
 	"Topic :: Multimedia :: Graphics",
 	"Topic :: Software Development :: Libraries :: Python Modules",
-	"Topic :: Utilities"
+	"Topic :: Utilities",
 ]
-homepage = "https://github.com/FHPythonUtils/BlendModes"
-repository = "https://github.com/FHPythonUtils/BlendModes"
-documentation = "https://github.com/FHPythonUtils/BlendModes/blob/master/README.md"
-readme = "README.md"
+dependencies = [
+	"aenum>=3.1.15",
+	"numpy>=2.0.2",
+	"pillow>=10.4.0",
+]
 
-[tool.poetry.dependencies]
-python = ">=3.9,<4.0"
-Pillow = "<11,>=10.2.0"
-numpy = "<2,>=1.26.4"
-aenum = "<4,>=3.1.15"
+[project.urls]
+Homepage = "https://github.com/FHPythonUtils/BlendModes"
+Repository = "https://github.com/FHPythonUtils/BlendModes"
+Documentation = "https://github.com/FHPythonUtils/BlendModes/blob/master/README.md"
 
-[tool.poetry.group.dev.dependencies]
-imgcompare = "^2.0.1"
-pytest = "^8.1.1"
-handsdown = "^2.1.0"
-coverage = "^7.4.4"
-ruff = "^0.3.3"
-pyright = "^1.1.354"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = [
+	"coverage>=7.6.12",
+	"handsdown>=2.1.0",
+	"imgcompare>=2.0.1",
+	"pyright>=1.1.394",
+	"pytest>=8.3.4",
+	"ruff>=0.9.7",
+]
 
 [tool.ruff]
 line-length = 100
@@ -46,7 +46,6 @@ target-version = "py38"
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [
-	"ANN101",  # type annotation for self in method
 	"COM812",  # enforce trailing comma
 	"D2",  # pydocstyle formatting
 	"ISC001",
@@ -87,3 +86,7 @@ deps =
 	pytest
 commands = pytest tests
 """
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
