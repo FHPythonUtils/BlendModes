@@ -11,3 +11,4 @@
 
 - [Blend](./blend.md)
 - [BlendType](./blendtype.md)
+- [Imgdiff](./imgdiff.md)
