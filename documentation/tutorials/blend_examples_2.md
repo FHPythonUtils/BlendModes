@@ -296,6 +296,3 @@
 | Case 1 | ![img](../../tests/data/src/rainbow.png) | ![img](../../tests/data/src/duck.png) | ![img](../../tests/data/case1/srcatop_expected.png) |
 | Case 2 | ![img](../../tests/data/src/noise_texture.png) | ![img](../../tests/data/src/red_soft_mask.png) | ![img](../../tests/data/case2/srcatop_expected.png) |
 | Case 2 | ![img](../../tests/data/src/red_soft_mask.png) | ![img](../../tests/data/src/rectangle_silhouette.png) | ![img](../../tests/data/case3/srcatop_expected.png) |
-
-
- 
