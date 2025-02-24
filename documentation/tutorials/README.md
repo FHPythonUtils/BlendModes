@@ -22,7 +22,7 @@ foreground = Image.open(THISDIR + "/duck.png")
 
 Blend modes define how the **foreground** interacts with the **background**. Let’s start with the most fundamental mode:
 
-## **Normal**
+## Normal
 
 The **Normal** blend mode places the foreground image on top of the background without
 any additional blending effects.
@@ -30,6 +30,9 @@ any additional blending effects.
 ```python
 blendLayers(background, foreground, BlendType.NORMAL)
 ```
+
+![Normal](../../tests/data/case1/normal_expected.png)
+
 
 Further examples of different blend types using `rainbow.png` and `duck.png` are as below
 
