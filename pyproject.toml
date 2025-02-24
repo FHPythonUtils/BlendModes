@@ -58,7 +58,7 @@ ignore = [
 fixable = ["ALL"]
 
 [tool.ruff.lint.per-file-ignores]
-"**/{tests,docs,tools}/*" = ["D", "S101", "E402", "S311"]
+"**/{tests,docs,tools}/*" = ["D", "S101", "E402", "S311", "ERA001"]
 
 [tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all" # Disallow all relative imports.
