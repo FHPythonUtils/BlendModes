@@ -48,17 +48,45 @@ BLEND_TESTS = [
 
 
 @pytest.mark.parametrize(("expected_image", "blend_mode"), BLEND_TESTS)
-def test_blend_modes(expected_image: str, blend_mode: BlendType) -> None:
-	background = Image.open(THISDIR / "data" / "background.png")
-	foreground = Image.open(THISDIR / "data" / "foreground.png")
-	expected = Image.open(THISDIR / "data" / expected_image).convert("RGBA")
+def test_blend_modes_case1(expected_image: str, blend_mode: BlendType) -> None:
+	background = Image.open(THISDIR / "data/src/rainbow.png")
+	foreground = Image.open(THISDIR / "data/src/duck.png")
 
 	result = blendLayers(background, foreground, blend_mode)
+	expected_dir = THISDIR / "data/case1" / expected_image
+	# result.save(expected_dir)
+	expected = Image.open(expected_dir).convert("RGBA")
+
+	assert imgcompare.is_equal(result, expected, tolerance=0.2)
+
+
+@pytest.mark.parametrize(("expected_image", "blend_mode"), BLEND_TESTS)
+def test_blend_modes_case2(expected_image: str, blend_mode: BlendType) -> None:
+	background = Image.open(THISDIR / "data/src/noise_texture.png")
+	foreground = Image.open(THISDIR / "data/src/red_soft_mask.png")
+
+	result = blendLayers(background, foreground, blend_mode)
+	expected_dir = THISDIR / "data/case2" / expected_image
+	# result.save(expected_dir)
+	expected = Image.open(expected_dir).convert("RGBA")
+
+	assert imgcompare.is_equal(result, expected, tolerance=0.2)
+
+
+@pytest.mark.parametrize(("expected_image", "blend_mode"), BLEND_TESTS)
+def test_blend_modes_case3(expected_image: str, blend_mode: BlendType) -> None:
+	background = Image.open(THISDIR / "data/src/red_soft_mask.png")
+	foreground = Image.open(THISDIR / "data/src/rectangle_silhouette.png")
+
+	result = blendLayers(background, foreground, blend_mode)
+	expected_dir = THISDIR / "data/case3" / expected_image
+	# result.save(expected_dir)
+	expected = Image.open(expected_dir).convert("RGBA")
 
 	assert imgcompare.is_equal(result, expected, tolerance=0.2)
 
 
 def test_non_rgba() -> None:
-	background = Image.open(THISDIR / "data" / "background.jpg")
-	foreground = Image.open(THISDIR / "data" / "foreground.jpg")
+	background = Image.open(THISDIR / "data/src/rainbow.jpg")
+	foreground = Image.open(THISDIR / "data/src/duck.jpg")
 	blendLayers(background, foreground, BlendType.NORMAL)

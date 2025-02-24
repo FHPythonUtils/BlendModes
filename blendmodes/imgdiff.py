@@ -1,6 +1,7 @@
+from __future__ import annotations
+
 import numpy as np
 from PIL import Image
-
 
 
 def is_x_diff(
@@ -53,6 +54,7 @@ def is_x_diff(
 	compare_res = image_diff(img1in, img2in, compare_mode, percentage=percentage)
 	return cmp_diff - tolerance <= compare_res <= cmp_diff + tolerance
 
+
 def is_equal(
 	img1in: Image.Image,
 	img2in: Image.Image,
@@ -60,7 +62,7 @@ def is_equal(
 	tolerance: float = 0,
 	*,
 	percentage: bool = True,
-):
+) -> bool:
 	"""
 	Compare two images and return True/False if the image is within `tolerance` of
 	`cmp_diff`.
@@ -144,9 +146,7 @@ def image_diff(
 	return image_diff_array(img1, img2) * (100 if percentage else 1)
 
 
-def image_diff_array(
-	img1in: Image.Image | np.ndarray, img2in: Image.Image | np.ndarray
-) -> float:
+def image_diff_array(img1in: Image.Image | np.ndarray, img2in: Image.Image | np.ndarray) -> float:
 	"""
 	Compare two images and return difference between 0, and 1.
 	Supports both PIL Images and NumPy arrays.
@@ -191,5 +191,6 @@ def image_diff_array(
 
 if __name__ == "__main__":
 	import doctest
+
 	doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE)
 	doctest.testmod()

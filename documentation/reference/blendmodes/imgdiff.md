@@ -12,7 +12,7 @@
 
 ## image_diff
 
-[Show source in imgdiff.py:103](../../../blendmodes/imgdiff.py#L103)
+[Show source in imgdiff.py:105](../../../blendmodes/imgdiff.py#L105)
 
 Compare two images and return the difference as a value between 0 and 1, or
 if percentage: 0 and 100.
@@ -75,7 +75,7 @@ def image_diff(
 
 ## image_diff_array
 
-[Show source in imgdiff.py:147](../../../blendmodes/imgdiff.py#L147)
+[Show source in imgdiff.py:149](../../../blendmodes/imgdiff.py#L149)
 
 Compare two images and return difference between 0, and 1.
 Supports both PIL Images and NumPy arrays.
@@ -120,7 +120,7 @@ def image_diff_array(
 
 ## is_equal
 
-[Show source in imgdiff.py:56](../../../blendmodes/imgdiff.py#L56)
+[Show source in imgdiff.py:58](../../../blendmodes/imgdiff.py#L58)
 
 Compare two images and return True/False if the image is within `tolerance` of
 `cmp_diff`.
@@ -176,14 +176,14 @@ def is_equal(
     compare_mode: str = "RGBA",
     tolerance: float = 0,
     percentage: bool = True,
-): ...
+) -> bool: ...
 ```
 
 
 
 ## is_x_diff
 
-[Show source in imgdiff.py:6](../../../blendmodes/imgdiff.py#L6)
+[Show source in imgdiff.py:7](../../../blendmodes/imgdiff.py#L7)
 
 Compare two images and return True/False if the image is within `tolerance` of
 `cmp_diff`.
