@@ -55,9 +55,9 @@ def create_silhouette(shape:str="circle") -> Image.Image:
 	img = Image.new("RGBA", size=(400, 400), color=(255, 255, 255, 0))
 	draw = ImageDraw.Draw(img)
 	if shape == "circle":
-		draw.ellipse((100, 100, 300, 300), fill=(0, 0, 0, 255))
+		draw.ellipse((100, 100, 300, 300), fill=(50, 0, 50, 255))
 	elif shape == "rectangle":
-		draw.rectangle((100, 150, 300, 350), fill=(0, 0, 0, 255))
+		draw.rectangle((100, 150, 300, 350), fill=(50, 0, 50, 255))
 	img.save(f"{shape}_silhouette.png")
 	return img
 

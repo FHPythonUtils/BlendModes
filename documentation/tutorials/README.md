@@ -1,9 +1,17 @@
 # Getting Started - Examples
 
-Be sure to include the following for the functions below
+Below, you'll find practical examples to help you get started with blending/compositing
+images with the `blendmodes` library. Whether you're experimenting with simple overlays
+or crafting intricate compositions, these examples will guide you through the process.
+
+To begin, let’s take a look at our two source images:
 
 ![Rainbow](../../tests/data/src/rainbow.png)
 ![Duck](../../tests/data/src/duck.png)
+
+We'll use these images as our **background** and **foreground** in the examples below.
+
+To blend two images together, use the `blendLayers` function with your chosen blend mode:
 
 ```python
 from blendmodes.blend import blendLayers, BlendType
@@ -12,13 +20,20 @@ background = Image.open(THISDIR + "/rainbow.png")
 foreground = Image.open(THISDIR + "/duck.png")
 ```
 
-## Normal
+Blend modes define how the **foreground** interacts with the **background**. Let’s start with the most fundamental mode:
+
+## **Normal**
+
+The **Normal** blend mode places the foreground image on top of the background without
+any additional blending effects.
 
 ```python
 blendLayers(background, foreground, BlendType.NORMAL)
 ```
 
-![Normal](../../tests/data/case1/normal_expected.png)
+Further examples of different blend types using `rainbow.png` and `duck.png` are as below
+
+Note: for other composition examples (without code snippets), check out the [extended blend mode examples](blend_examples.md).
 
 ## Multiply
 

@@ -146,9 +146,13 @@ def alpha_comp_shell(
     upper_alpha: np.ndarray,
     lower_rgb: np.ndarray,
     upper_rgb: np.ndarray,
-    blendType: BlendType | tuple[str, ...],
+    blendType: BlendType,
 ) -> tuple[np.ndarray, np.ndarray]: ...
 ```
+
+#### See also
+
+- [BlendType](./blendtype.md#blendtype)
 
 
 
@@ -253,11 +257,15 @@ Blend two layers with custom opacity and offsets
 def blendLayers(
     background: Image.Image,
     foreground: Image.Image,
-    blendType: BlendType | tuple[str, ...],
+    blendType: BlendType,
     opacity: float = 1.0,
     offsets: tuple[int, int] = (0, 0),
 ) -> Image.Image: ...
 ```
+
+#### See also
+
+- [BlendType](./blendtype.md#blendtype)
 
 
 

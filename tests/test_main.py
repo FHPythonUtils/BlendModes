@@ -90,3 +90,20 @@ def test_non_rgba() -> None:
 	background = Image.open(THISDIR / "data/src/rainbow.jpg")
 	foreground = Image.open(THISDIR / "data/src/duck.jpg")
 	blendLayers(background, foreground, BlendType.NORMAL)
+
+
+if __name__ == "__main__":
+	for dest_filename, _ in BLEND_TESTS:
+		blend_mode = dest_filename.split("_")[0]
+		blend_mode = blend_mode[0].upper() + blend_mode[1:]
+
+		print(f"""
+## {blend_mode}
+
+| Case | Background | Foreground | Output |
+|------|---------|------|--------|
+| Case 1 | ![img](../../tests/data/src/rainbow.png) | ![img](../../tests/data/src/duck.png) | ![img](../../tests/data/case1/{dest_filename}) |
+| Case 2 | ![img](../../tests/data/src/noise_texture.png) | ![img](../../tests/data/src/red_soft_mask.png) | ![img](../../tests/data/case2/{dest_filename}) |
+| Case 2 | ![img](../../tests/data/src/red_soft_mask.png) | ![img](../../tests/data/src/rectangle_silhouette.png) | ![img](../../tests/data/case3/{dest_filename}) |
+
+		""")  # noqa: T201, E501

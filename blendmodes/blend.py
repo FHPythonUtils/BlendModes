@@ -467,7 +467,7 @@ def blend(background: np.ndarray, foreground: np.ndarray, blendType: BlendType) 
 def blendLayers(
 	background: Image.Image,
 	foreground: Image.Image,
-	blendType: BlendType | tuple[str, ...],
+	blendType: BlendType,
 	opacity: float = 1.0,
 	offsets: tuple[int, int] = (0, 0),
 ) -> Image.Image:
@@ -629,7 +629,7 @@ def alpha_comp_shell(
 	upper_alpha: np.ndarray,
 	lower_rgb: np.ndarray,
 	upper_rgb: np.ndarray,
-	blendType: BlendType | tuple[str, ...],
+	blendType: BlendType,
 ) -> tuple[np.ndarray, np.ndarray]:
 	"""
 	Implement common transformations occurring in any blend or composite mode.
