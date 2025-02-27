@@ -26,6 +26,8 @@ from PIL import Image
 
 from blendmodes.blendtype import BlendType
 
+HALF_THRESHOLD = 0.5
+
 
 def normal(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
 	"""BlendType.NORMAL."""
@@ -76,7 +78,7 @@ def glow(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
 def overlay(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
 	"""BlendType.OVERLAY."""
 	return np.where(
-		background < 0.5,
+		background < HALF_THRESHOLD,
 		2 * background * foreground,
 		1.0 - (2 * (1.0 - background) * (1.0 - foreground)),
 	)
@@ -125,7 +127,7 @@ def softlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
 def hardlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
 	"""BlendType.HARDLIGHT."""
 	return np.where(
-		foreground < 0.5,
+		foreground < HALF_THRESHOLD,
 		np.minimum(background * 2 * foreground, 1.0),
 		np.minimum(1.0 - ((1.0 - background) * (1.0 - (foreground - 0.5) * 2.0)), 1.0),
 	)
@@ -148,16 +150,16 @@ def divide(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
 
 def pinlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
 	"""BlendType.PINLIGHT."""
-	return np.minimum(background, 2 * foreground) * (foreground < 0.5) + np.maximum(
+	return np.minimum(background, 2 * foreground) * (foreground < HALF_THRESHOLD) + np.maximum(
 		background, 2 * (foreground - 0.5)
-	) * (foreground >= 0.5)
+	) * (foreground >= HALF_THRESHOLD)
 
 
 def vividlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
 	"""BlendType.VIVIDLIGHT."""
-	return colourburn(background, foreground * 2) * (foreground < 0.5) + colourdodge(
+	return colourburn(background, foreground * 2) * (foreground < HALF_THRESHOLD) + colourdodge(
 		background, 2 * (foreground - 0.5)
-	) * (foreground >= 0.5)
+	) * (foreground >= HALF_THRESHOLD)
 
 
 def exclusion(background: np.ndarray, foreground: np.ndarray) -> np.ndarray:
@@ -543,60 +545,54 @@ def blendLayersArray(
 	"""
 
 	# Convert the Image.Image to a numpy array if required
-	if isinstance(background, Image.Image):
-		background = np.array(background.convert("RGBA"))
-	if isinstance(foreground, Image.Image):
-		foreground = np.array(foreground.convert("RGBA"))
+	bg = np.array(background.convert("RGBA")) if isinstance(background, Image.Image) else background
+	fg = np.array(foreground.convert("RGBA")) if isinstance(foreground, Image.Image) else foreground
 
 	# do any offset shifting first
 	if offsets[0] > 0:
-		foreground = np.hstack(
-			(np.zeros((foreground.shape[0], offsets[0], 4), dtype=np.float64), foreground)
-		)
+		fg = np.hstack((np.zeros((bg.shape[0], offsets[0], 4), dtype=np.float64), fg))
 	elif offsets[0] < 0:
-		if offsets[0] > -1 * foreground.shape[1]:
-			foreground = foreground[:, -1 * offsets[0] :, :]
+		if offsets[0] > -1 * fg.shape[1]:
+			fg = fg[:, -1 * offsets[0] :, :]
 		else:
 			# offset offscreen completely, there is nothing left
-			return np.zeros(background.shape, dtype=np.float64)
+			return np.zeros(bg.shape, dtype=np.float64)
 	if offsets[1] > 0:
-		foreground = np.vstack(
-			(np.zeros((offsets[1], foreground.shape[1], 4), dtype=np.float64), foreground)
-		)
+		fg = np.vstack((np.zeros((offsets[1], fg.shape[1], 4), dtype=np.float64), fg))
 	elif offsets[1] < 0:
-		if offsets[1] > -1 * foreground.shape[0]:
-			foreground = foreground[-1 * offsets[1] :, :, :]
+		if offsets[1] > -1 * fg.shape[0]:
+			fg = fg[-1 * offsets[1] :, :, :]
 		else:
 			# offset offscreen completely, there is nothing left
-			return np.zeros(background.shape, dtype=np.float64)
+			return np.zeros(bg.shape, dtype=np.float64)
 
 	# resize array to fill small images with zeros
-	if foreground.shape[0] < background.shape[0]:
-		foreground = np.vstack(
+	if fg.shape[0] < bg.shape[0]:
+		fg = np.vstack(
 			(
-				foreground,
+				fg,
 				np.zeros(
-					(background.shape[0] - foreground.shape[0], foreground.shape[1], 4),
+					(bg.shape[0] - fg.shape[0], fg.shape[1], 4),
 					dtype=np.float64,
 				),
 			)
 		)
-	if foreground.shape[1] < background.shape[1]:
-		foreground = np.hstack(
+	if fg.shape[1] < bg.shape[1]:
+		fg = np.hstack(
 			(
-				foreground,
+				fg,
 				np.zeros(
-					(foreground.shape[0], background.shape[1] - foreground.shape[1], 4),
+					(fg.shape[0], bg.shape[1] - fg.shape[1], 4),
 					dtype=np.float64,
 				),
 			)
 		)
 
 	# crop the source if the backdrop is smaller
-	foreground = foreground[: background.shape[0], : background.shape[1], :]
+	fg = fg[: bg.shape[0], : bg.shape[1], :]
 
-	lower_norm = background / 255.0
-	upper_norm = foreground / 255.0
+	lower_norm = bg / 255.0
+	upper_norm = fg / 255.0
 
 	upper_alpha = upper_norm[:, :, 3] * opacity
 	lower_alpha = lower_norm[:, :, 3]
@@ -639,10 +635,14 @@ def alpha_comp_shell(
 
 	blend_rgb = blend(lower_rgb, upper_rgb, blendType)
 
-	lower_rgb_part = np.multiply(((1.0 - upper_alpha) * lower_alpha)[:, :, None], lower_rgb)
-	upper_rgb_part = np.multiply(((1.0 - lower_alpha) * upper_alpha)[:, :, None], upper_rgb)
-	blended_rgb_part = np.multiply((lower_alpha * upper_alpha)[:, :, None], blend_rgb)
+	lower_rgb_factor = (1.0 - upper_alpha) * lower_alpha
+	upper_rgb_factor = (1.0 - lower_alpha) * upper_alpha
+	blended_rgb_factor = lower_alpha * upper_alpha
 
-	out_rgb = np.divide((lower_rgb_part + upper_rgb_part + blended_rgb_part), out_alpha[:, :, None])
+	out_rgb = (
+		lower_rgb_factor[:, :, None] * lower_rgb
+		+ upper_rgb_factor[:, :, None] * upper_rgb
+		+ blended_rgb_factor[:, :, None] * blend_rgb
+	) / out_alpha[:, :, None]
 
 	return out_rgb, out_alpha

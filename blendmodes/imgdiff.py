@@ -1,3 +1,21 @@
+"""
+Image Difference for Blend Modes Library.
+
+This module provides functions to compare two images.
+It calculates the pixel-wise difference and the percentage of differing pixels between
+two images, which is useful for testing and validating blend mode implementations.
+
+Functions:
+- image_diff: Compute the difference between two images as a float between 0-1 or
+0-100
+- image_diff_array: Compute the difference between two images as numpy arrays as a
+float between 0-1 or 0-100
+- is_equal: Check if two images are identical, optionally allowing for a tolerance
+in pixel values.
+- is_x_diff: Compare two images and return True/False if the image is within `tolerance` of
+	`cmp_diff`.
+"""
+
 from __future__ import annotations
 
 import numpy as np
@@ -65,11 +83,7 @@ def is_equal(
 ) -> bool:
 	"""
 	Compare two images and return True/False if the image is within `tolerance` of
-	`cmp_diff`.
-
-	For example, a black and white image compared in 'RGB' mode would
-	return a value of 100, which would then be checked if its between
-	`cmp_diff - tolerance` and `cmp_diff + tolerance`
+	the second image.
 
 	:param Image.Image img1in: image 1 to compare
 	:param Image.Image img2in: image 2 to compare
@@ -174,14 +188,15 @@ def image_diff_array(img1in: Image.Image | np.ndarray, img2in: Image.Image | np.
 
 	"""
 	# Convert PIL images to NumPy arrays if needed
-	img1 = np.array(img1in) if isinstance(img1in, Image.Image) else img1in
-	img2 = np.array(img2in) if isinstance(img2in, Image.Image) else img2in
+	img1 = np.array(img1in, dtype=np.int16) if isinstance(img1in, Image.Image) else img1in
+	img2 = np.array(img2in, dtype=np.int16) if isinstance(img2in, Image.Image) else img2in
 	# Ensure images have the same dimensions
 	if img1.shape != img2.shape:
 		msg = "Images must have the same dimensions for comparison."
 		raise ValueError(msg)
 
 	# Compute absolute difference
+
 	difference = np.abs(img1 - img2)
 
 	# Sum the differences and normalize to get a percentage

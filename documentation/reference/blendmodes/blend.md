@@ -48,7 +48,7 @@
 
 ## _lum
 
-[Show source in blend.py:168](../../../blendmodes/blend.py#L168)
+[Show source in blend.py:170](../../../blendmodes/blend.py#L170)
 
 Luminosity.
 
@@ -70,7 +70,7 @@ def _lum(colours: np.ndarray) -> np.ndarray: ...
 
 ## _sat
 
-[Show source in blend.py:208](../../../blendmodes/blend.py#L208)
+[Show source in blend.py:210](../../../blendmodes/blend.py#L210)
 
 Saturation.
 
@@ -92,7 +92,7 @@ def _sat(colours: np.ndarray) -> np.ndarray: ...
 
 ## _setLum
 
-[Show source in blend.py:177](../../../blendmodes/blend.py#L177)
+[Show source in blend.py:179](../../../blendmodes/blend.py#L179)
 
 Set a new luminosity value for the matrix of color.
 
@@ -106,7 +106,7 @@ def _setLum(originalColours: np.ndarray, newLuminosity: np.ndarray) -> np.ndarra
 
 ## _setSat
 
-[Show source in blend.py:217](../../../blendmodes/blend.py#L217)
+[Show source in blend.py:219](../../../blendmodes/blend.py#L219)
 
 Set a new saturation value for the matrix of color.
 
@@ -120,7 +120,7 @@ def _setSat(originalColours: np.ndarray, newSaturation: np.ndarray) -> np.ndarra
 
 ## additive
 
-[Show source in blend.py:41](../../../blendmodes/blend.py#L41)
+[Show source in blend.py:43](../../../blendmodes/blend.py#L43)
 
 BlendType.ADDITIVE.
 
@@ -134,7 +134,7 @@ def additive(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## alpha_comp_shell
 
-[Show source in blend.py:627](../../../blendmodes/blend.py#L627)
+[Show source in blend.py:623](../../../blendmodes/blend.py#L623)
 
 Implement common transformations occurring in any blend or composite mode.
 
@@ -158,7 +158,7 @@ def alpha_comp_shell(
 
 ## blend
 
-[Show source in blend.py:400](../../../blendmodes/blend.py#L400)
+[Show source in blend.py:402](../../../blendmodes/blend.py#L402)
 
 Blend pixels.
 
@@ -211,7 +211,7 @@ def blend(
 
 ## blendLayers
 
-[Show source in blend.py:467](../../../blendmodes/blend.py#L467)
+[Show source in blend.py:469](../../../blendmodes/blend.py#L469)
 
 Blend two layers (background and foreground), where the background may
 be cropped if smaller than the foreground.
@@ -271,7 +271,7 @@ def blendLayers(
 
 ## blendLayersArray
 
-[Show source in blend.py:511](../../../blendmodes/blend.py#L511)
+[Show source in blend.py:513](../../../blendmodes/blend.py#L513)
 
 Blend two layers (background and foreground), where the background may
 be cropped if smaller than the foreground.
@@ -331,7 +331,7 @@ def blendLayersArray(
 
 ## colour
 
-[Show source in blend.py:267](../../../blendmodes/blend.py#L267)
+[Show source in blend.py:269](../../../blendmodes/blend.py#L269)
 
 BlendType.COLOUR.
 
@@ -345,7 +345,7 @@ def colour(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## colourburn
 
-[Show source in blend.py:46](../../../blendmodes/blend.py#L46)
+[Show source in blend.py:48](../../../blendmodes/blend.py#L48)
 
 BlendType.COLOURBURN.
 
@@ -359,7 +359,7 @@ def colourburn(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ..
 
 ## colourdodge
 
-[Show source in blend.py:54](../../../blendmodes/blend.py#L54)
+[Show source in blend.py:56](../../../blendmodes/blend.py#L56)
 
 BlendType.COLOURDODGE.
 
@@ -373,7 +373,7 @@ def colourdodge(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: .
 
 ## darken
 
-[Show source in blend.py:100](../../../blendmodes/blend.py#L100)
+[Show source in blend.py:102](../../../blendmodes/blend.py#L102)
 
 BlendType.DARKEN.
 
@@ -387,7 +387,7 @@ def darken(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## destatop
 
-[Show source in blend.py:328](../../../blendmodes/blend.py#L328)
+[Show source in blend.py:330](../../../blendmodes/blend.py#L330)
 
 Place the layer below above the 'layer above' in places where the 'layer above' exists...
 
@@ -408,7 +408,7 @@ def destatop(
 
 ## destin
 
-[Show source in blend.py:277](../../../blendmodes/blend.py#L277)
+[Show source in blend.py:279](../../../blendmodes/blend.py#L279)
 
 'clip' composite mode.
 
@@ -437,7 +437,7 @@ def destin(
 
 ## destout
 
-[Show source in blend.py:305](../../../blendmodes/blend.py#L305)
+[Show source in blend.py:307](../../../blendmodes/blend.py#L307)
 
 Reverse 'Clip' composite mode.
 
@@ -460,7 +460,7 @@ def destout(
 
 ## difference
 
-[Show source in blend.py:85](../../../blendmodes/blend.py#L85)
+[Show source in blend.py:87](../../../blendmodes/blend.py#L87)
 
 BlendType.DIFFERENCE.
 
@@ -474,7 +474,7 @@ def difference(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ..
 
 ## divide
 
-[Show source in blend.py:144](../../../blendmodes/blend.py#L144)
+[Show source in blend.py:146](../../../blendmodes/blend.py#L146)
 
 BlendType.DIVIDE.
 
@@ -488,7 +488,7 @@ def divide(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## exclusion
 
-[Show source in blend.py:163](../../../blendmodes/blend.py#L163)
+[Show source in blend.py:165](../../../blendmodes/blend.py#L165)
 
 BlendType.EXCLUSION.
 
@@ -502,7 +502,7 @@ def exclusion(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## glow
 
-[Show source in blend.py:68](../../../blendmodes/blend.py#L68)
+[Show source in blend.py:70](../../../blendmodes/blend.py#L70)
 
 BlendType.GLOW.
 
@@ -516,7 +516,7 @@ def glow(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## grainextract
 
-[Show source in blend.py:134](../../../blendmodes/blend.py#L134)
+[Show source in blend.py:136](../../../blendmodes/blend.py#L136)
 
 BlendType.GRAINEXTRACT.
 
@@ -530,7 +530,7 @@ def grainextract(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: 
 
 ## grainmerge
 
-[Show source in blend.py:139](../../../blendmodes/blend.py#L139)
+[Show source in blend.py:141](../../../blendmodes/blend.py#L141)
 
 BlendType.GRAINMERGE.
 
@@ -544,7 +544,7 @@ def grainmerge(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ..
 
 ## hardlight
 
-[Show source in blend.py:125](../../../blendmodes/blend.py#L125)
+[Show source in blend.py:127](../../../blendmodes/blend.py#L127)
 
 BlendType.HARDLIGHT.
 
@@ -558,7 +558,7 @@ def hardlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## hue
 
-[Show source in blend.py:257](../../../blendmodes/blend.py#L257)
+[Show source in blend.py:259](../../../blendmodes/blend.py#L259)
 
 BlendType.HUE.
 
@@ -572,7 +572,7 @@ def hue(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## imageFloatToInt
 
-[Show source in blend.py:382](../../../blendmodes/blend.py#L382)
+[Show source in blend.py:384](../../../blendmodes/blend.py#L384)
 
 Convert a numpy array representing an image to an array of ints.
 
@@ -596,7 +596,7 @@ def imageFloatToInt(image: np.ndarray) -> np.ndarray: ...
 
 ## imageIntToFloat
 
-[Show source in blend.py:367](../../../blendmodes/blend.py#L367)
+[Show source in blend.py:369](../../../blendmodes/blend.py#L369)
 
 Convert a numpy array representing an image to an array of floats.
 
@@ -620,7 +620,7 @@ def imageIntToFloat(image: np.ndarray) -> np.ndarray: ...
 
 ## lighten
 
-[Show source in blend.py:95](../../../blendmodes/blend.py#L95)
+[Show source in blend.py:97](../../../blendmodes/blend.py#L97)
 
 BlendType.LIGHTEN.
 
@@ -634,7 +634,7 @@ def lighten(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## luminosity
 
-[Show source in blend.py:272](../../../blendmodes/blend.py#L272)
+[Show source in blend.py:274](../../../blendmodes/blend.py#L274)
 
 BlendType.LUMINOSITY.
 
@@ -648,7 +648,7 @@ def luminosity(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ..
 
 ## multiply
 
-[Show source in blend.py:36](../../../blendmodes/blend.py#L36)
+[Show source in blend.py:38](../../../blendmodes/blend.py#L38)
 
 BlendType.MULTIPLY.
 
@@ -662,7 +662,7 @@ def multiply(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## negation
 
-[Show source in blend.py:90](../../../blendmodes/blend.py#L90)
+[Show source in blend.py:92](../../../blendmodes/blend.py#L92)
 
 BlendType.NEGATION.
 
@@ -676,7 +676,7 @@ def negation(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## normal
 
-[Show source in blend.py:30](../../../blendmodes/blend.py#L30)
+[Show source in blend.py:32](../../../blendmodes/blend.py#L32)
 
 BlendType.NORMAL.
 
@@ -690,7 +690,7 @@ def normal(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## overlay
 
-[Show source in blend.py:76](../../../blendmodes/blend.py#L76)
+[Show source in blend.py:78](../../../blendmodes/blend.py#L78)
 
 BlendType.OVERLAY.
 
@@ -704,7 +704,7 @@ def overlay(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## pinlight
 
-[Show source in blend.py:149](../../../blendmodes/blend.py#L149)
+[Show source in blend.py:151](../../../blendmodes/blend.py#L151)
 
 BlendType.PINLIGHT.
 
@@ -718,7 +718,7 @@ def pinlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## reflect
 
-[Show source in blend.py:60](../../../blendmodes/blend.py#L60)
+[Show source in blend.py:62](../../../blendmodes/blend.py#L62)
 
 BlendType.REFLECT.
 
@@ -732,7 +732,7 @@ def reflect(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## saturation
 
-[Show source in blend.py:262](../../../blendmodes/blend.py#L262)
+[Show source in blend.py:264](../../../blendmodes/blend.py#L264)
 
 BlendType.SATURATION.
 
@@ -746,7 +746,7 @@ def saturation(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ..
 
 ## screen
 
-[Show source in blend.py:105](../../../blendmodes/blend.py#L105)
+[Show source in blend.py:107](../../../blendmodes/blend.py#L107)
 
 BlendType.SCREEN.
 
@@ -760,7 +760,7 @@ def screen(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## softlight
 
-[Show source in blend.py:118](../../../blendmodes/blend.py#L118)
+[Show source in blend.py:120](../../../blendmodes/blend.py#L120)
 
 BlendType.SOFTLIGHT.
 
@@ -774,7 +774,7 @@ def softlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ...
 
 ## srcatop
 
-[Show source in blend.py:349](../../../blendmodes/blend.py#L349)
+[Show source in blend.py:351](../../../blendmodes/blend.py#L351)
 
 Place the layer below above the 'layer above' in places where the 'layer above' exists.
 
@@ -793,7 +793,7 @@ def srcatop(
 
 ## vividlight
 
-[Show source in blend.py:156](../../../blendmodes/blend.py#L156)
+[Show source in blend.py:158](../../../blendmodes/blend.py#L158)
 
 BlendType.VIVIDLIGHT.
 
@@ -807,7 +807,7 @@ def vividlight(background: np.ndarray, foreground: np.ndarray) -> np.ndarray: ..
 
 ## xor
 
-[Show source in blend.py:110](../../../blendmodes/blend.py#L110)
+[Show source in blend.py:112](../../../blendmodes/blend.py#L112)
 
 BlendType.XOR.
 

@@ -9,6 +9,8 @@
 
 ## Modules
 
+- [Main](./__main.md)
 - [Blend](./blend.md)
 - [BlendType](./blendtype.md)
+- [Cli](./cli.md)
 - [Imgdiff](./imgdiff.md)

@@ -44,7 +44,9 @@ def create_soft_mask(size: tuple[int, int] = (400, 400)) -> Image.Image:
 
 # Create a noisy texture
 def create_noise_texture(size: tuple[int, int] = (400, 400)) -> Image.Image:
-	noise_array = np.random.randint(0, 255, (size[1], size[0]), dtype=np.uint8)
+
+	rng = np.random.default_rng()
+	noise_array = rng.integers(0, 255, (size[1], size[0]), dtype=np.uint8)
 	img = Image.fromarray(noise_array, mode="L")
 	img.save("noise_texture.png")
 	return img
